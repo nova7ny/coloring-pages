@@ -1,0 +1,40 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model Category {
+  id          String         @id
+  name        String
+  description String
+  iconPath    String
+  pages       ColoringPage[]
+}
+
+model ColoringPage {
+  id             String        @id
+  categoryId     String
+  category       Category      @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  subcategory    String?
+  title          String
+  tags           String        // Store as JSON string array
+  seoTitle       String
+  seoDescription String
+  difficulty     String
+  imagePath      String
+  pdfPath        String
+  downloadCount  Int           @default(0)
+  createdAt      DateTime      @default(now())
+  downloads      DownloadLog[]
+}
+
+model DownloadLog {
+  id        Int          @id @default(autoincrement())
+  pageId    String
+  page      ColoringPage @relation(fields: [pageId], references: [id], onDelete: Cascade)
+  timestamp DateTime     @default(now())
+}
