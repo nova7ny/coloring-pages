@@ -97,8 +97,9 @@ a {
 
 .logo-link {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 12px;
+  gap: 8px;
   text-decoration: none;
   transition: transform 0.2s ease;
 }
@@ -108,22 +109,23 @@ a {
 }
 
 .header-logo {
-  height: 42px;
-  width: 42px;
+  height: 80px;
+  width: 80px;
   object-fit: contain;
-  border-radius: 8px;
+  border-radius: 12px;
 }
 
 .logo-title {
   font-family: var(--font-fredoka), var(--font-heading);
-  font-size: 24px;
+  font-size: 28px;
   font-weight: 800;
-  color: var(--text-primary);
+  color: #2D3748; /* Slate charcoal matching the B&W pencil sketch outlines */
   letter-spacing: -0.5px;
+  line-height: 1.1;
 }
 
 .logo-accent {
-  color: var(--peach-text);
+  color: #A855F7; /* Beautiful lavender-purple coordinating with the watercolor roofs */
 }
 
 .nav-links {
