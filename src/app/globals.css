@@ -99,20 +99,20 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
+  gap: 2px; /* Brought the words much closer to the bottom edge of the logo */
   text-decoration: none;
   transition: transform 0.2s ease;
 }
 
 .logo-link:hover {
-  transform: scale(1.03);
+  transform: scale(1.02);
 }
 
 .header-logo {
-  height: 80px;
-  width: 80px;
+  height: 240px; /* 3x larger (240px) as requested */
+  width: 240px;
   object-fit: contain;
-  border-radius: 12px;
+  border-radius: 20px;
 }
 
 .logo-title {
