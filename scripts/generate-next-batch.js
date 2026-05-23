@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 const CONTENT_DIR = path.join(__dirname, '../public/content');
-const PLACEHOLDER_SIZE = 157240; // Size of playful-kitten/image.png placeholder in bytes
+const PLACEHOLDER_MAX_SIZE = 1000; // Small text placeholders (usually 19 bytes)
 
 function getPrompt(page) {
   const diff = page.difficulty;
@@ -39,16 +39,13 @@ async function main() {
       .map(dirent => dirent.name);
 
     for (const pageId of pages) {
-      // Skip the base placeholder source page
-      if (catId === 'animals' && pageId === 'playful-kitten') continue;
-
       const pagePath = path.join(catPath, pageId);
       const imagePath = path.join(pagePath, 'image.png');
       const metaPath = path.join(pagePath, 'metadata.json');
 
       if (fs.existsSync(imagePath) && fs.existsSync(metaPath)) {
-        const stats = fs.statSync(imagePath);
-        if (stats.size === PLACEHOLDER_SIZE) {
+        const size = fs.statSync(imagePath).size;
+        if (size <= PLACEHOLDER_MAX_SIZE) {
           try {
             const meta = JSON.parse(fs.readFileSync(metaPath, 'utf8'));
             placeholderPages.push({
