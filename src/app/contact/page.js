@@ -1,6 +1,8 @@
 import Link from "next/link";
 import AdContainer from "@/components/AdContainer";
 import ContactForm from "@/components/ContactForm";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 export const metadata = {
   title: "Contact & Takedown Request | ColoringPalace",
@@ -10,17 +12,7 @@ export const metadata = {
 export default function ContactPage() {
   return (
     <>
-      <header className="nav-header">
-        <div className="nav-content">
-          <Link href="/" className="logo-link">
-            ColoringPalace<span className="logo-dot"></span>
-          </Link>
-          <nav className="nav-links">
-            <Link href="/" className="nav-item">Home</Link>
-            <Link href="/trending" className="nav-item">Trending</Link>
-          </nav>
-        </div>
-      </header>
+      <Header active="contact" />
 
       <main className="app-container">
         {/* Dynamic Ad Leaderboard */}
@@ -53,14 +45,7 @@ export default function ContactPage() {
         </div>
       </main>
 
-      <footer className="app-footer">
-        <div className="footer-content">
-          <p>© 2026 ColoringPalace. All rights reserved. High-resolution vector-grade printable PDFs.</p>
-          <p style={{ marginTop: '8px', fontSize: '12px', color: '#A0998E' }}>
-            Terms of Use | Privacy Policy | <Link href="/contact" style={{ textDecoration: 'underline' }}>Takedown Request Form</Link>
-          </p>
-        </div>
-      </footer>
+      <Footer />
     </>
   );
 }

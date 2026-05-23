@@ -1,4 +1,11 @@
+import { Fredoka } from "next/font/google";
 import "./globals.css";
+
+const fredoka = Fredoka({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-fredoka",
+});
 
 export const metadata = {
   title: "Monday Mandala Style Free Coloring Pages | Dynamic Printables",
@@ -7,7 +14,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className={fredoka.variable}>
       <body>{children}</body>
     </html>
   );
