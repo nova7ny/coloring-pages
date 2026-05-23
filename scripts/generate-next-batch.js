@@ -67,8 +67,8 @@ async function main() {
 
   console.log(`Found ${placeholderPages.length} placeholder pages remaining.`);
 
-  // Pick the first 4 pages to process in this batch
-  const batchSize = 4;
+  // Pick the first 6 pages to process in this batch
+  const batchSize = 6;
   const batch = placeholderPages.slice(0, batchSize);
 
   if (batch.length === 0) {
