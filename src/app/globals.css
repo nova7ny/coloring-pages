@@ -133,7 +133,7 @@ a {
 /* Hamburger menu toggle button */
 .menu-toggle {
   position: absolute;
-  right: 20px;
+  left: 20px; /* Moved to left side as requested */
   top: 50%;
   transform: translateY(-50%);
   background: var(--bg-primary);
@@ -182,15 +182,15 @@ a {
 .menu-drawer {
   position: fixed;
   top: 0;
-  right: 0;
+  left: 0; /* Align to the left side */
   bottom: 0;
   width: 320px;
   background: rgba(255, 255, 255, 0.96);
   backdrop-filter: blur(16px);
-  border-left: 2px solid var(--border-color);
-  box-shadow: -8px 0 32px rgba(220, 213, 203, 0.25);
+  border-right: 2px solid var(--border-color); /* Right border instead of left border */
+  box-shadow: 8px 0 32px rgba(220, 213, 203, 0.25); /* Shadow offset to the right */
   z-index: 1000;
-  transform: translateX(100%);
+  transform: translateX(-100%); /* Slide-in from left */
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   padding: 40px 32px;
   display: flex;
