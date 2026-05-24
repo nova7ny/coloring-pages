@@ -1011,13 +1011,13 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 80px;
-  height: 40px;
+  width: 110px; /* Increased from 80px to accommodate larger sword */
+  height: 50px;
   flex-shrink: 0;
 }
 
 .sword-svg-horizontal {
-  transform: rotate(90deg); /* Points directly to the right */
+  transform: rotate(-90deg); /* Points blade directly to the right (at the search box) */
   filter: drop-shadow(4px 0px 4px rgba(0, 0, 0, 0.08));
   animation: sword-bounce-horizontal 3s ease-in-out infinite;
   transform-origin: center;
@@ -1025,10 +1025,10 @@ a {
 
 @keyframes sword-bounce-horizontal {
   0%, 100% {
-    transform: rotate(90deg) scale(1);
+    transform: rotate(-90deg) scale(1);
   }
   50% {
-    transform: rotate(90deg) scale(1.05) translateX(4px); /* Minor horizontal float nudge */
+    transform: rotate(-90deg) scale(1.05) translateX(4px); /* Minor horizontal float nudge */
   }
 }
 
@@ -1072,7 +1072,7 @@ a {
   }
   
   .sword-svg-horizontal {
-    transform: rotate(180deg); /* Points straight down on mobile */
+    transform: rotate(0deg); /* Points blade straight down on mobile */
     animation: sword-bounce-vertical-mobile 3s ease-in-out infinite;
   }
   
@@ -1085,9 +1085,9 @@ a {
 
 @keyframes sword-bounce-vertical-mobile {
   0%, 100% {
-    transform: rotate(180deg) translateY(0);
+    transform: rotate(0deg) translateY(0);
   }
   50% {
-    transform: rotate(180deg) translateY(6px);
+    transform: rotate(0deg) translateY(6px);
   }
 }

@@ -54,7 +54,7 @@ export default async function Home() {
             
             {/* Playful medieval sword arrow divider (points right on desktop, down on mobile) */}
             <div className="sword-container-horizontal">
-              <svg viewBox="0 0 100 200" width="30" height="60" xmlns="http://www.w3.org/2000/svg" className="sword-svg-horizontal">
+              <svg viewBox="0 0 100 200" width="40" height="80" xmlns="http://www.w3.org/2000/svg" className="sword-svg-horizontal">
                 {/* Pommel (Golden) */}
                 <circle cx="50" cy="20" r="8" fill="#D4AF37" stroke="#997A15" strokeWidth="1.5" />
                 <circle cx="50" cy="20" r="3" fill="#FFE57F" />
