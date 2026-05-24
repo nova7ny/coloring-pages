@@ -80,7 +80,7 @@ a {
 .nav-header {
   background-color: var(--bg-secondary);
   border-bottom: 2px solid var(--border-color);
-  padding: 6px 0; /* Minimal vertical padding to keep white space to a minimum */
+  padding: 0; /* Set vertical padding to zero to minimize white space */
   position: sticky;
   top: 0;
   z-index: 100;
@@ -110,21 +110,22 @@ a {
 }
 
 .header-logo {
-  width: 100%; /* Restore exact previous widescreen size: spans full header width */
+  width: 100%; /* Spans full header width */
   max-width: 1160px; /* Aligns perfectly with nav container bounds */
   height: auto; /* Maintain aspect ratio */
   max-height: 300px; /* Allows full horizontal expansion without being height-throttled */
   object-fit: contain;
   transition: transform 0.2s ease;
+  margin: -24px 0; /* Negative vertical margin to pull layout tight and crop image margins */
 }
 
 .logo-title {
   font-family: var(--font-fredoka), var(--font-heading);
-  font-size: 48px; /* Increased words size by 50% (from 32px to 48px) */
+  font-size: 60px; /* Increased words size by 25% (from 48px to 60px) */
   font-weight: 800;
   color: #2D3748;
-  letter-spacing: -1px;
-  line-height: 1.0;
+  letter-spacing: -1.5px; /* Tighter letter-spacing for premium display at large scale */
+  line-height: 0.95;
   white-space: nowrap; /* Prevent wrapping in header row */
 }
 
