@@ -49,7 +49,7 @@ echo "Configuring Nginx reverse proxy..."
 sudo tee /etc/nginx/sites-available/default > /dev/null <<EOF
 server {
     listen 80;
-    server_name 2.24.121.71;
+    server_name coloringpalace.cloud www.coloringpalace.cloud;
 
     location / {
         proxy_pass http://127.0.0.1:3000;
@@ -74,4 +74,4 @@ pm2 start npm --name "coloring-pages" -- start
 pm2 save
 
 echo "=== VPS Deployment Successfully Completed! ==="
-echo "You can now visit your website at: http://2.24.121.71"
+echo "You can now visit your website at: http://coloringpalace.cloud"
