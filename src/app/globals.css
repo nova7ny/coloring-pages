@@ -110,10 +110,10 @@ a {
 }
 
 .header-logo {
-  width: 75%; /* Spans 3/4 of the header width */
-  max-width: 900px; /* Upper boundary limit for ultra-wide desktop monitors */
+  width: 100%; /* Spans 100% of the header width to fill the space completely */
+  max-width: 1160px; /* Aligns perfectly with nav container bounds (1200px minus margins) */
   height: auto; /* Maintain aspect ratio */
-  max-height: 200px; /* Prevent vertical bloating on desktop */
+  max-height: 300px; /* Allows full horizontal expansion without being height-throttled */
   object-fit: contain;
   transition: transform 0.2s ease;
 }
@@ -689,8 +689,8 @@ a {
 
 @media (max-width: 768px) {
   .header-logo {
-    width: 90%; /* Expand slightly more on mobile for better visibility */
-    max-height: 120px; /* Restrict height to prevent layout pushing */
+    width: 100%; /* Spans full mobile screen width */
+    max-height: 180px; /* Let it grow slightly more on mobile for beautiful detail visibility */
   }
 }
 
