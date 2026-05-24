@@ -9,11 +9,11 @@ function getPrompt(page) {
   const title = page.title.replace(' Coloring Page', '');
 
   if (diff === 'Easy') {
-    return `Black and white coloring page for toddlers and young kids, extremely simple cartoon ${title}, very thick bold outer outlines, large empty coloring spaces, simple sparse cartoon background elements, clean white background, zero shading, zero fine details, zero textures`;
+    return `Black and white coloring page for toddlers and young kids, extremely simple cartoon ${title}, very thick bold outer outlines, large empty coloring spaces, simple sparse cartoon background elements, clean white background, zero shading, zero fine details, zero textures, no text, no labels, no watermarks, no title, no words, no letters`;
   } else if (diff === 'Medium') {
-    return `Black and white coloring page for kids and teens, clean line art of ${title}, standard line weight, moderate details and natural textures, clean white background, simple scenic background, zero shading, zero grayscale gradients`;
+    return `Black and white coloring page for kids and teens, clean line art of ${title}, standard line weight, moderate details and natural textures, clean white background, simple scenic background, zero shading, zero grayscale gradients, no text, no labels, no watermarks, no title, no words, no letters`;
   } else {
-    return `Intricate black and white coloring page for adults, ultra-detailed ${title} with highly complex geometric patterns, fine lines, repeating mandala motifs, dense coloring canvas, full-bleed design, zero shading, pure white background`;
+    return `Intricate black and white coloring page for adults, ultra-detailed ${title} with highly complex geometric patterns, fine lines, repeating mandala motifs, dense coloring canvas, full-bleed design, zero shading, pure white background, no text, no labels, no watermarks, no title, no words, no letters`;
   }
 }
 

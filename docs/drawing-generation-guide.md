@@ -24,7 +24,7 @@ To build a well-balanced coloring book library suitable for all age groups, futu
 
 ### Standardized Prompt Template:
 ```text
-Black and white coloring page for toddlers and young kids, extremely simple cartoon [Subject], very thick bold outer outlines, large empty coloring spaces, simple sparse cartoon background elements (like a simple sun and clouds), clean white background, zero shading, zero fine details, zero textures
+Black and white coloring page for toddlers and young kids, extremely simple cartoon [Subject], very thick bold outer outlines, large empty coloring spaces, simple sparse cartoon background elements (like a simple sun and clouds), clean white background, zero shading, zero fine details, zero textures, no text, no labels, no watermarks, no title, no words, no letters
 ```
 
 ### Visual Verification Check:
@@ -44,7 +44,7 @@ Black and white coloring page for toddlers and young kids, extremely simple cart
 
 ### Standardized Prompt Template:
 ```text
-Black and white coloring page for kids and teens, clean line art of [Subject], standard line weight, moderate details and natural textures, clean white background, simple scenic background, zero shading, zero grayscale gradients
+Black and white coloring page for kids and teens, clean line art of [Subject], standard line weight, moderate details and natural textures, clean white background, simple scenic background, zero shading, zero grayscale gradients, no text, no labels, no watermarks, no title, no words, no letters
 ```
 
 ### Visual Verification Check:
@@ -64,7 +64,7 @@ Black and white coloring page for kids and teens, clean line art of [Subject], s
 
 ### Standardized Prompt Template:
 ```text
-Intricate black and white coloring page for adults, ultra-detailed [Subject] with highly complex geometric patterns, fine lines, repeating mandala motifs, dense coloring canvas, full-bleed design, zero shading, pure white background
+Intricate black and white coloring page for adults, ultra-detailed [Subject] with highly complex geometric patterns, fine lines, repeating mandala motifs, dense coloring canvas, full-bleed design, zero shading, pure white background, no text, no labels, no watermarks, no title, no words, no letters
 ```
 
 ### Visual Verification Check:

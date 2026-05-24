@@ -13,41 +13,39 @@ export async function GET(request) {
   }
 
   try {
-    // 1. Verify if coloring page exists in database
-    const page = await prisma.coloringPage.findUnique({
-      where: { id },
-    });
+    // 1. Verify coloring page exists in database
+    const page = await prisma.coloringPage.findUnique({ where: { id } });
 
     if (!page) {
       return new NextResponse("Coloring page not found", { status: 404 });
     }
 
-    // 2. Increment downloadCount and insert DownloadLog in a transaction
+    // 2. Track the download
     await prisma.$transaction([
       prisma.coloringPage.update({
         where: { id },
         data: { downloadCount: { increment: 1 } },
       }),
-      prisma.downloadLog.create({
-        data: { pageId: id },
-      }),
+      prisma.downloadLog.create({ data: { pageId: id } }),
     ]);
 
-    // 3. Locate the high-resolution image on disk
-    // page.imagePath is stored as "/content/category/id/image.png"
+    // 3. Locate image on disk
     const imagePath = path.join(process.cwd(), "public", page.imagePath);
 
     if (!fs.existsSync(imagePath)) {
-      console.error(`[PDF] Image not found at path: ${imagePath}`);
-      return new NextResponse(`Image file not found: ${imagePath}`, { status: 404 });
+      console.error(`[PDF] Image not found at: ${imagePath}`);
+      return new NextResponse("Image file not found on server", { status: 404 });
     }
 
-    // 4. Dynamically generate a valid A4 PDF using PDFKit
+    // 4. Generate a clean, single-page, full-bleed A4 PDF — image only, no text
     const pdfBuffer = await new Promise((resolve, reject) => {
       try {
+        // Tiny 4pt margins so the image fills the page edge-to-edge
+        const margin = 4;
+
         const doc = new PDFDocument({
           size: "A4",
-          margins: { top: 40, bottom: 40, left: 40, right: 40 },
+          margins: { top: margin, bottom: margin, left: margin, right: margin },
           autoFirstPage: true,
         });
 
@@ -56,53 +54,16 @@ export async function GET(request) {
         doc.on("end", () => resolve(Buffer.concat(chunks)));
         doc.on("error", reject);
 
-        // --- Page Title ---
-        doc
-          .font("Helvetica-Bold")
-          .fontSize(16)
-          .fillColor("#2D312E")
-          .text(page.title, { align: "center" });
+        // Full printable area
+        const printWidth  = doc.page.width  - margin * 2;
+        const printHeight = doc.page.height - margin * 2;
 
-        doc.moveDown(0.5);
-
-        // --- Difficulty badge line ---
-        const metaLine = [
-          page.difficulty ? `Difficulty: ${page.difficulty}` : null,
-          page.subcategory ? `Category: ${page.subcategory}` : null,
-        ]
-          .filter(Boolean)
-          .join("  •  ");
-
-        if (metaLine) {
-          doc
-            .font("Helvetica")
-            .fontSize(10)
-            .fillColor("#6B726E")
-            .text(metaLine, { align: "center" });
-          doc.moveDown(0.75);
-        }
-
-        // --- Embed the coloring page image, scaled to fit the printable area ---
-        const pageWidth = doc.page.width - 80;   // account for left + right margins
-        const pageHeight = doc.page.height - 200; // reserve space for title + footer
-
-        doc.image(imagePath, {
-          fit: [pageWidth, pageHeight],
+        // Embed the image scaled to fill the entire printable area
+        doc.image(imagePath, margin, margin, {
+          fit: [printWidth, printHeight],
           align: "center",
           valign: "center",
         });
-
-        // --- Branded footer ---
-        doc
-          .font("Helvetica")
-          .fontSize(9)
-          .fillColor("#A0A8A4")
-          .text(
-            "Free printable coloring page from ColoringPalace.cloud — Print, color, and enjoy!",
-            40,
-            doc.page.height - 50,
-            { align: "center", width: pageWidth }
-          );
 
         doc.end();
       } catch (innerErr) {
@@ -110,7 +71,7 @@ export async function GET(request) {
       }
     });
 
-    // 5. Return the PDF as a binary download attachment
+    // 5. Serve the PDF as a download attachment
     return new NextResponse(pdfBuffer, {
       status: 200,
       headers: {
@@ -123,6 +84,9 @@ export async function GET(request) {
   } catch (error) {
     console.error("[PDF Generation Error]", error?.message || error);
     console.error(error?.stack || "");
-    return new NextResponse(`Server error generating PDF: ${error?.message || "unknown"}`, { status: 500 });
+    return new NextResponse(
+      `Server error generating PDF: ${error?.message || "unknown"}`,
+      { status: 500 }
+    );
   }
 }
