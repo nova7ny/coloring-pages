@@ -36,7 +36,9 @@ export default function Header({ active }) {
 
         {/* Brand Logo Stacked: Logo Image on Left, Word Part on Right */}
         <Link href="/" className="logo-link">
-          <img src="/logo.png" alt="Coloring Palace Logo" className="header-logo" />
+          <div className="logo-image-container">
+            <img src="/logo.png" alt="Coloring Palace Logo" className="header-logo" />
+          </div>
           <span className="logo-title">Coloring <span className="logo-accent">Palace</span></span>
         </Link>
 

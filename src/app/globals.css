@@ -109,14 +109,22 @@ a {
   transform: scale(1.02);
 }
 
+.logo-image-container {
+  display: flex;
+  align-items: flex-start; /* Aligns image to the top to hide bottom excess */
+  overflow: hidden;
+  height: 130px; /* Visible height constraint in the header */
+  width: auto;
+  position: relative;
+}
+
 .header-logo {
-  width: 100%; /* Spans full header width */
-  max-width: 1160px; /* Aligns perfectly with nav container bounds */
-  height: auto; /* Maintain aspect ratio */
-  max-height: 100px; /* Reduced max-height to trim vertical footprint and prevent overlaps */
+  width: auto;
+  height: 220px; /* Set a large height to keep the image detail nice and big */
   object-fit: contain;
+  margin-top: -10px; /* Shifts the image slightly upward to crop top whitespace */
+  margin-bottom: -90px; /* Crops the massive bottom whitespace completely */
   transition: transform 0.2s ease;
-  margin: -10px 0; /* Moderate negative margin to crop minor built-in image whitespace without overlap */
 }
 
 .logo-title {
@@ -686,10 +694,15 @@ a {
 }
 
 @media (max-width: 768px) {
+  .logo-image-container {
+    height: 70px; /* Smaller visible container height on mobile */
+  }
+
   .header-logo {
-    width: 100%; /* Spans full mobile screen width */
-    max-height: 60px; /* Compact max-height on mobile to match scaled font size */
-    margin: -5px 0; /* Tiny negative margin on mobile to avoid overlapping content */
+    width: auto;
+    height: 120px; /* Scaled down actual image height on mobile */
+    margin-top: -5px; /* Scaled shift */
+    margin-bottom: -45px; /* Scaled bottom crop */
   }
   
   .logo-title {
