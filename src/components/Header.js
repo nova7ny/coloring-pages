@@ -12,10 +12,10 @@ export default function Header({ active }) {
   return (
     <header className="nav-header">
       <div className="nav-content">
-        {/* Brand Logo Stacked: Word Part ABOVE Logo Image */}
+        {/* Brand Logo Stacked: Logo Image on Left, Word Part on Right */}
         <Link href="/" className="logo-link">
-          <span className="logo-title">Coloring <span className="logo-accent">Palace</span></span>
           <img src="/logo.png" alt="Coloring Palace Logo" className="header-logo" />
+          <span className="logo-title">Coloring <span className="logo-accent">Palace</span></span>
         </Link>
 
         {/* Hamburger Menu Toggle Button */}

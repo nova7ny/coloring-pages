@@ -80,7 +80,7 @@ a {
 .nav-header {
   background-color: var(--bg-secondary);
   border-bottom: 2px solid var(--border-color);
-  padding: 16px 0;
+  padding: 6px 0; /* Minimal vertical padding to keep white space to a minimum */
   position: sticky;
   top: 0;
   z-index: 100;
@@ -91,16 +91,16 @@ a {
   margin: 0 auto;
   padding: 0 20px;
   display: flex;
-  justify-content: center; /* Center the logo perfectly */
+  justify-content: flex-start; /* Left-aligned brand layout next to menu icon */
   align-items: center;
-  position: relative; /* For absolute button positioning */
+  gap: 20px; /* Space between menu icon and brand stack */
 }
 
 .logo-link {
   display: flex;
-  flex-direction: column; /* Stack Title above Logo */
+  flex-direction: row; /* Horizontal row (Logo on Left, Words on Right) */
   align-items: center;
-  gap: 12px; /* Elegant gap between text and castle logo */
+  gap: 16px; /* Balanced spacing between watercolor logo and text */
   text-decoration: none;
   transition: transform 0.2s ease;
 }
@@ -110,22 +110,21 @@ a {
 }
 
 .header-logo {
-  width: 100%; /* Spans 100% of the header width to fill the space completely */
-  max-width: 1160px; /* Aligns perfectly with nav container bounds (1200px minus margins) */
-  height: auto; /* Maintain aspect ratio */
-  max-height: 300px; /* Allows full horizontal expansion without being height-throttled */
+  height: 80px; /* Compact height to minimize vertical header padding */
+  width: auto; /* Scale width proportionally based on panoramic aspect ratio */
+  max-width: 320px; /* Upper boundary for widescreen logo display */
   object-fit: contain;
   transition: transform 0.2s ease;
 }
 
 .logo-title {
   font-family: var(--font-fredoka), var(--font-heading);
-  font-size: 32px; /* Slightly larger for premium centered emphasis */
+  font-size: 48px; /* Increased words size by 50% (from 32px to 48px) */
   font-weight: 800;
   color: #2D3748;
-  letter-spacing: -0.5px;
-  line-height: 1.1;
-  text-align: center;
+  letter-spacing: -1px;
+  line-height: 1.0;
+  white-space: nowrap; /* Prevent wrapping in header row */
 }
 
 .logo-accent {
@@ -134,10 +133,6 @@ a {
 
 /* Hamburger menu toggle button */
 .menu-toggle {
-  position: absolute;
-  left: 20px; /* Moved to left side as requested */
-  top: 50%;
-  transform: translateY(-50%);
   background: var(--bg-primary);
   border: 2px solid var(--border-color);
   color: var(--text-primary);
@@ -151,13 +146,14 @@ a {
   transition: all 0.2s ease;
   z-index: 1001;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  flex-shrink: 0; /* Prevent shrinking in flex row */
 }
 
 .menu-toggle:hover {
   background-color: var(--sage-bg);
   color: var(--sage-text);
   border-color: rgba(77, 109, 101, 0.2);
-  transform: translateY(-50%) scale(1.05);
+  transform: scale(1.05);
 }
 
 /* Backdrop Blur Overlay */
