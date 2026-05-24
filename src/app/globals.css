@@ -113,10 +113,10 @@ a {
   width: 100%; /* Spans full header width */
   max-width: 1160px; /* Aligns perfectly with nav container bounds */
   height: auto; /* Maintain aspect ratio */
-  max-height: 300px; /* Allows full horizontal expansion without being height-throttled */
+  max-height: 100px; /* Reduced max-height to trim vertical footprint and prevent overlaps */
   object-fit: contain;
   transition: transform 0.2s ease;
-  margin: -48px 0; /* Increased negative vertical margin to pull layout tight and crop image margins */
+  margin: -10px 0; /* Moderate negative margin to crop minor built-in image whitespace without overlap */
 }
 
 .logo-title {
@@ -688,8 +688,8 @@ a {
 @media (max-width: 768px) {
   .header-logo {
     width: 100%; /* Spans full mobile screen width */
-    max-height: 120px; /* Compact max-height on mobile */
-    margin: -12px 0; /* Reduced negative margin on mobile to avoid overlapping content */
+    max-height: 60px; /* Compact max-height on mobile to match scaled font size */
+    margin: -5px 0; /* Tiny negative margin on mobile to avoid overlapping content */
   }
   
   .logo-title {
