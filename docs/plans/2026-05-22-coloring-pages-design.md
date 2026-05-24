@@ -8,7 +8,7 @@
 ---
 
 ## 1. Overview & Goals
-The goal of this project is to build a highly responsive, SEO-optimized, and premium coloring pages website inspired by `MondayMandala.com`. 
+The goal of this project is to build a highly responsive, SEO-optimized, and premium coloring pages website for kids and adults. 
 The website will:
 *   Organize thousands of coloring sheets into simple, beautiful categories using circular/square cards.
 *   Automate ingestion: AI agents will drop high-resolution images, printable PDFs, and JSON metadata into structured folders. A sync script automatically scans and indexes them.

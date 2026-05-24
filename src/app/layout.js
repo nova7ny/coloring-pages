@@ -8,7 +8,7 @@ const fredoka = Fredoka({
 });
 
 export const metadata = {
-  title: "Monday Mandala Style Free Coloring Pages | Dynamic Printables",
+  title: "Free Printable Coloring Pages for Kids & Adults | ColoringPalace",
   description: "Download thousands of high-resolution free printable coloring pages for kids, teachers, and parents. Easy PDF format, print in one-click.",
 };
 
