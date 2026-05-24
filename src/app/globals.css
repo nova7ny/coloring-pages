@@ -116,16 +116,16 @@ a {
   max-height: 300px; /* Allows full horizontal expansion without being height-throttled */
   object-fit: contain;
   transition: transform 0.2s ease;
-  margin: -24px 0; /* Negative vertical margin to pull layout tight and crop image margins */
+  margin: -48px 0; /* Increased negative vertical margin to pull layout tight and crop image margins */
 }
 
 .logo-title {
   font-family: var(--font-fredoka), var(--font-heading);
-  font-size: 60px; /* Increased words size by 25% (from 48px to 60px) */
+  font-size: 75px; /* Increased words size by an additional 25% (from 60px to 75px) */
   font-weight: 800;
   color: #2D3748;
-  letter-spacing: -1.5px; /* Tighter letter-spacing for premium display at large scale */
-  line-height: 0.95;
+  letter-spacing: -2px; /* Tighter letter-spacing for premium display at large scale */
+  line-height: 0.9;
   white-space: nowrap; /* Prevent wrapping in header row */
 }
 
@@ -688,7 +688,17 @@ a {
 @media (max-width: 768px) {
   .header-logo {
     width: 100%; /* Spans full mobile screen width */
-    max-height: 180px; /* Let it grow slightly more on mobile for beautiful detail visibility */
+    max-height: 120px; /* Compact max-height on mobile */
+    margin: -12px 0; /* Reduced negative margin on mobile to avoid overlapping content */
+  }
+  
+  .logo-title {
+    font-size: 32px; /* Scale down brand typography on mobile to fit perfectly */
+    letter-spacing: -1px;
+  }
+  
+  .logo-link {
+    gap: 8px; /* Tighter gap on mobile */
   }
 }
 
