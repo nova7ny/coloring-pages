@@ -9,11 +9,11 @@ function getPrompt(page) {
   const title = page.title.replace(' Coloring Page', '');
 
   if (diff === 'Easy') {
-    return `Black and white coloring page for toddlers and young kids, extremely simple cartoon ${title}, very thick bold outer outlines, large empty coloring spaces, simple sparse cartoon background elements, clean white background, zero shading, zero fine details, zero textures, no text, no labels, no watermarks, no title, no words, no letters`;
+    return `Black and white coloring page for toddlers and young kids, extremely simple cartoon ${title}, very thick bold outer outlines, large empty coloring spaces, simple sparse cartoon background elements, clean white background, zero shading, zero fine details, zero textures, no text, no labels, no watermarks, no title, no words, no letters, portrait orientation, tall vertical format, full-page composition filling the entire canvas top to bottom, A4 page proportions`;
   } else if (diff === 'Medium') {
-    return `Black and white coloring page for kids and teens, clean line art of ${title}, standard line weight, moderate details and natural textures, clean white background, simple scenic background, zero shading, zero grayscale gradients, no text, no labels, no watermarks, no title, no words, no letters`;
+    return `Black and white coloring page for kids and teens, clean line art of ${title}, standard line weight, moderate details and natural textures, clean white background, simple scenic background, zero shading, zero grayscale gradients, no text, no labels, no watermarks, no title, no words, no letters, portrait orientation, tall vertical format, full-page composition filling the entire canvas top to bottom, A4 page proportions`;
   } else {
-    return `Intricate black and white coloring page for adults, ultra-detailed ${title} with highly complex geometric patterns, fine lines, repeating mandala motifs, dense coloring canvas, full-bleed design, zero shading, pure white background, no text, no labels, no watermarks, no title, no words, no letters`;
+    return `Intricate black and white coloring page for adults, ultra-detailed ${title} with highly complex geometric patterns, fine lines, repeating mandala motifs, dense coloring canvas, full-bleed design, zero shading, pure white background, no text, no labels, no watermarks, no title, no words, no letters, portrait orientation, tall vertical format, full-page composition filling the entire canvas top to bottom, A4 page proportions`;
   }
 }
 

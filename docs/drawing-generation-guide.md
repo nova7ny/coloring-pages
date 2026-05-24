@@ -8,9 +8,9 @@ To build a well-balanced coloring book library suitable for all age groups, futu
 
 | Difficulty | Age Range | Target Line Weight | Background Detail | Coloring Zone Size | Prompt Formula Modifiers |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Easy** | Toddlers & Kids (Ages 2-6) | Very Bold & Thick | Sparse, simple cartoon elements (sun, moon, simple clouds, flat grass) | Large, open areas (> 2cm x 2cm) | `toddler-friendly, very thick outlines, cartoon style, extremely simple shapes, large open coloring zones, zero textures` |
-| **Medium** | Older Kids & Teens (Ages 7-14) | Balanced / Standard | Basic Context (horizon, sky, trees) | Moderate size (pencil-friendly) | `standard outlines, clean details, natural textures, balanced composition, simple scenic background` |
-| **Hard** | Adults & Teens (Ages 15+) | Fine & Delicate | Complex & Rich (repeating patterns) | Tiny, detailed areas (fine gel-pen sized) | `ultra-detailed, intricate geometric patterns, fine lines, repeating motifs, complex mandala borders` |
+| **Easy** | Toddlers & Kids (Ages 2-6) | Very Bold & Thick | Sparse, simple cartoon elements (sun, moon, simple clouds, flat grass) | Large, open areas (> 2cm x 2cm) | `toddler-friendly, very thick outlines, cartoon style, extremely simple shapes, large open coloring zones, zero textures, portrait orientation, A4 page proportions, no text` |
+| **Medium** | Older Kids & Teens (Ages 7-14) | Balanced / Standard | Basic Context (horizon, sky, trees) | Moderate size (pencil-friendly) | `standard outlines, clean details, natural textures, balanced composition, simple scenic background, portrait orientation, A4 page proportions, no text` |
+| **Hard** | Adults & Teens (Ages 15+) | Fine & Delicate | Complex & Rich (repeating patterns) | Tiny, detailed areas (fine gel-pen sized) | `ultra-detailed, intricate geometric patterns, fine lines, repeating motifs, complex mandala borders, portrait orientation, A4 page proportions, no text` |
 
 ---
 
@@ -24,7 +24,7 @@ To build a well-balanced coloring book library suitable for all age groups, futu
 
 ### Standardized Prompt Template:
 ```text
-Black and white coloring page for toddlers and young kids, extremely simple cartoon [Subject], very thick bold outer outlines, large empty coloring spaces, simple sparse cartoon background elements (like a simple sun and clouds), clean white background, zero shading, zero fine details, zero textures, no text, no labels, no watermarks, no title, no words, no letters
+Black and white coloring page for toddlers and young kids, extremely simple cartoon [Subject], very thick bold outer outlines, large empty coloring spaces, simple sparse cartoon background elements (like a simple sun and clouds), clean white background, zero shading, zero fine details, zero textures, no text, no labels, no watermarks, no title, no words, no letters, portrait orientation, tall vertical format, full-page composition filling the entire canvas top to bottom, A4 page proportions
 ```
 
 ### Visual Verification Check:
@@ -44,7 +44,7 @@ Black and white coloring page for toddlers and young kids, extremely simple cart
 
 ### Standardized Prompt Template:
 ```text
-Black and white coloring page for kids and teens, clean line art of [Subject], standard line weight, moderate details and natural textures, clean white background, simple scenic background, zero shading, zero grayscale gradients, no text, no labels, no watermarks, no title, no words, no letters
+Black and white coloring page for kids and teens, clean line art of [Subject], standard line weight, moderate details and natural textures, clean white background, simple scenic background, zero shading, zero grayscale gradients, no text, no labels, no watermarks, no title, no words, no letters, portrait orientation, tall vertical format, full-page composition filling the entire canvas top to bottom, A4 page proportions
 ```
 
 ### Visual Verification Check:
@@ -64,7 +64,7 @@ Black and white coloring page for kids and teens, clean line art of [Subject], s
 
 ### Standardized Prompt Template:
 ```text
-Intricate black and white coloring page for adults, ultra-detailed [Subject] with highly complex geometric patterns, fine lines, repeating mandala motifs, dense coloring canvas, full-bleed design, zero shading, pure white background, no text, no labels, no watermarks, no title, no words, no letters
+Intricate black and white coloring page for adults, ultra-detailed [Subject] with highly complex geometric patterns, fine lines, repeating mandala motifs, dense coloring canvas, full-bleed design, zero shading, pure white background, no text, no labels, no watermarks, no title, no words, no letters, portrait orientation, tall vertical format, full-page composition filling the entire canvas top to bottom, A4 page proportions
 ```
 
 ### Visual Verification Check:
