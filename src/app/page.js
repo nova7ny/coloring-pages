@@ -135,6 +135,54 @@ export default async function Home() {
             </div>
           </section>
         )}
+        {/* Search the Palace Section */}
+        <section className="search-section">
+          <div className="search-card">
+            <h2 className="search-heading">Search the Palace</h2>
+            
+            {/* Playful medieval sword arrow divider */}
+            <div className="sword-container">
+              <svg viewBox="0 0 100 200" width="60" height="120" xmlns="http://www.w3.org/2000/svg" className="sword-svg">
+                {/* Pommel (Golden) */}
+                <circle cx="50" cy="20" r="8" fill="#D4AF37" stroke="#997A15" strokeWidth="1.5" />
+                <circle cx="50" cy="20" r="3" fill="#FFE57F" />
+
+                {/* Grip/Handle (Gold wraps over dark wood) */}
+                <rect x="46" y="28" width="8" height="35" rx="3" fill="#8B5A2B" stroke="#5C3A21" strokeWidth="1" />
+                <line x1="46" y1="35" x2="54" y2="35" stroke="#D4AF37" strokeWidth="1.5" />
+                <line x1="46" y1="43" x2="54" y2="43" stroke="#D4AF37" strokeWidth="1.5" />
+                <line x1="46" y1="51" x2="54" y2="51" stroke="#D4AF37" strokeWidth="1.5" />
+                <line x1="46" y1="59" x2="54" y2="59" stroke="#D4AF37" strokeWidth="1.5" />
+
+                {/* Crossguard (Golden curved wings) */}
+                <path d="M 25 63 C 25 63, 40 68, 50 68 C 60 68, 75 63, 75 63 C 75 63, 70 73, 50 73 C 30 73, 25 63, 25 63 Z" fill="#D4AF37" stroke="#997A15" strokeWidth="1.5" />
+                <polygon points="50,65 54,69 50,73 46,69" fill="#E53935" />
+
+                {/* Blade (Silver, double-edged 3D depth) */}
+                <path d="M 40 73 L 40 170 L 50 190 L 50 73 Z" fill="#E0E0E0" stroke="#9E9E9E" strokeWidth="0.5" />
+                <path d="M 50 73 L 50 190 L 60 170 L 60 73 Z" fill="#BDBDBD" stroke="#9E9E9E" strokeWidth="0.5" />
+                <line x1="50" y1="73" x2="50" y2="188" stroke="#757575" strokeWidth="1.5" />
+                
+                {/* Shiny metallic highlight */}
+                <path d="M 42 78 L 42 165 L 45 165 L 45 78 Z" fill="#FFFFFF" opacity="0.4" />
+              </svg>
+            </div>
+
+            {/* Native HTML Form for super fast search rendering without Client Component overhead */}
+            <form action="/search" method="GET" className="search-input-wrapper">
+              <input 
+                type="text" 
+                name="q" 
+                placeholder="Search thousands of coloring pages (e.g. unicorn, dog, dragon...)" 
+                required 
+                className="search-input"
+              />
+              <button type="submit" className="search-btn">
+                <span>🔍</span> Search
+              </button>
+            </form>
+          </div>
+        </section>
       </main>
 
       <Footer />
