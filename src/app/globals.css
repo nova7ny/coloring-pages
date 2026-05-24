@@ -89,7 +89,7 @@ a {
 .nav-content {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 12px 20px 16px 20px; /* Added top and bottom padding to create cushioning */
   display: flex;
   justify-content: flex-start; /* Left-aligned brand layout next to menu icon */
   align-items: center;
@@ -99,7 +99,7 @@ a {
 .logo-link {
   display: flex;
   flex-direction: row; /* Horizontal row (Logo on Left, Words on Right) */
-  align-items: center;
+  align-items: flex-end; /* Align elements to the bottom to push text down to the bottom of the logo */
   gap: 16px; /* Balanced spacing between watercolor logo and text */
   text-decoration: none;
   transition: transform 0.2s ease;
@@ -113,17 +113,17 @@ a {
   display: flex;
   align-items: flex-start; /* Aligns image to the top to hide bottom excess */
   overflow: hidden;
-  height: 130px; /* Visible height constraint in the header */
+  height: 165px; /* Increased by 25% (from 130px to 165px) */
   width: auto;
   position: relative;
 }
 
 .header-logo {
   width: auto;
-  height: 220px; /* Set a large height to keep the image detail nice and big */
+  height: 275px; /* Increased by 25% (from 220px to 275px) */
   object-fit: contain;
-  margin-top: -10px; /* Shifts the image slightly upward to crop top whitespace */
-  margin-bottom: -90px; /* Crops the massive bottom whitespace completely */
+  margin-top: -12px; /* Shifts the image slightly upward to crop top whitespace */
+  margin-bottom: -112px; /* Crops the massive bottom whitespace completely */
   transition: transform 0.2s ease;
 }
 
@@ -695,14 +695,14 @@ a {
 
 @media (max-width: 768px) {
   .logo-image-container {
-    height: 70px; /* Smaller visible container height on mobile */
+    height: 88px; /* Scaled visible container height on mobile */
   }
 
   .header-logo {
     width: auto;
-    height: 120px; /* Scaled down actual image height on mobile */
-    margin-top: -5px; /* Scaled shift */
-    margin-bottom: -45px; /* Scaled bottom crop */
+    height: 150px; /* Scaled down actual image height on mobile */
+    margin-top: -6px; /* Scaled shift */
+    margin-bottom: -56px; /* Scaled bottom crop */
   }
   
   .logo-title {
