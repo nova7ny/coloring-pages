@@ -656,7 +656,7 @@ a {
 }
 
 .form-submit-btn {
-  background-color: var(--sage-text);
+  background-color: var(--peach-text);
   color: #FFFFFF;
   font-family: var(--font-heading);
   font-weight: 700;
@@ -665,14 +665,14 @@ a {
   border-radius: var(--border-radius-md);
   border: none;
   cursor: pointer;
-  box-shadow: 0 4px 12px rgba(77, 109, 101, 0.25);
+  box-shadow: 0 4px 12px rgba(201, 110, 62, 0.25);
   transition: background-color 0.2s, transform 0.1s, box-shadow 0.2s;
   align-self: flex-start;
 }
 
 .form-submit-btn:hover {
-  background-color: #3b544e;
-  box-shadow: 0 6px 16px rgba(77, 109, 101, 0.35);
+  background-color: #B25A2C;
+  box-shadow: 0 6px 16px rgba(201, 110, 62, 0.35);
 }
 
 .form-submit-btn:active {

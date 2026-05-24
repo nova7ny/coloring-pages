@@ -36,9 +36,9 @@ export default function ContactPage() {
           padding: "40px",
           boxShadow: "var(--card-shadow)"
         }}>
-          <h1 style={{ fontSize: '32px', marginBottom: '12px' }}>Contact Us</h1>
+          <h1 style={{ fontSize: '32px', marginBottom: '12px' }}>Contact & Requests</h1>
           <p style={{ color: 'var(--text-secondary)', marginBottom: '32px', lineHeight: '1.6' }}>
-            Have questions, feedback, or custom drawing suggestions? Reach out to us using the form below!
+            Submit custom coloring page suggestions to our royal scribes, or reach out regarding copyright and administrative requests.
           </p>
 
           <ContactForm />
