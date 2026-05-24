@@ -12,13 +12,7 @@ export default function Header({ active }) {
   return (
     <header className="nav-header">
       <div className="nav-content">
-        {/* Brand Logo Stacked: Logo Image on Left, Word Part on Right */}
-        <Link href="/" className="logo-link">
-          <img src="/logo.png" alt="Coloring Palace Logo" className="header-logo" />
-          <span className="logo-title">Coloring <span className="logo-accent">Palace</span></span>
-        </Link>
-
-        {/* Hamburger Menu Toggle Button */}
+        {/* Hamburger Menu Toggle Button (Leftmost in row) */}
         <button 
           onClick={toggleMenu} 
           className={`menu-toggle ${isMenuOpen ? "open" : ""}`} 
@@ -39,6 +33,12 @@ export default function Header({ active }) {
             )}
           </svg>
         </button>
+
+        {/* Brand Logo Stacked: Logo Image on Left, Word Part on Right */}
+        <Link href="/" className="logo-link">
+          <img src="/logo.png" alt="Coloring Palace Logo" className="header-logo" />
+          <span className="logo-title">Coloring <span className="logo-accent">Palace</span></span>
+        </Link>
 
         {/* Backdrop Overlay */}
         <div 

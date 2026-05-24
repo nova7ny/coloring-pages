@@ -110,9 +110,10 @@ a {
 }
 
 .header-logo {
-  height: 80px; /* Compact height to minimize vertical header padding */
-  width: auto; /* Scale width proportionally based on panoramic aspect ratio */
-  max-width: 320px; /* Upper boundary for widescreen logo display */
+  width: 100%; /* Restore exact previous widescreen size: spans full header width */
+  max-width: 1160px; /* Aligns perfectly with nav container bounds */
+  height: auto; /* Maintain aspect ratio */
+  max-height: 300px; /* Allows full horizontal expansion without being height-throttled */
   object-fit: contain;
   transition: transform 0.2s ease;
 }
