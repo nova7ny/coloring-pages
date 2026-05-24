@@ -154,7 +154,7 @@ a {
   justify-content: center;
   cursor: pointer;
   transition: all 0.2s ease;
-  z-index: 1001;
+  z-index: 998;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   flex-shrink: 0; /* Prevent shrinking in flex row */
 }
