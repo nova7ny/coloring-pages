@@ -110,10 +110,12 @@ a {
 }
 
 .header-logo {
-  height: 240px; /* Kept 3x larger (240px) as requested */
-  width: 240px;
+  width: 75%; /* Spans 3/4 of the header width */
+  max-width: 900px; /* Upper boundary limit for ultra-wide desktop monitors */
+  height: auto; /* Maintain aspect ratio */
+  max-height: 200px; /* Prevent vertical bloating on desktop */
   object-fit: contain;
-  border-radius: 20px;
+  transition: transform 0.2s ease;
 }
 
 .logo-title {
@@ -684,4 +686,12 @@ a {
   align-items: center;
   gap: 12px;
 }
+
+@media (max-width: 768px) {
+  .header-logo {
+    width: 90%; /* Expand slightly more on mobile for better visibility */
+    max-height: 120px; /* Restrict height to prevent layout pushing */
+  }
+}
+
 
