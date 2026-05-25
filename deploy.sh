@@ -32,46 +32,110 @@ else
     echo "PM2 is already installed."
 fi
 
-# 5. Install Project Dependencies
+# 5. Install Certbot if not already present
+if ! command -v certbot &> /dev/null; then
+    echo "Certbot not found. Installing Certbot..."
+    sudo apt-get install -y certbot python3-certbot-nginx
+else
+    echo "Certbot is already installed."
+fi
+
+# 6. Install Project Dependencies
 echo "Installing project dependencies..."
 npm install
 
-# 6. Generate Prisma client
+# 7. Generate Prisma client
 echo "Generating Prisma Client..."
 npx prisma generate
 
-# 7. Compile the Next.js Production Build
+# 8. Compile the Next.js Production Build
 echo "Building the Next.js production site..."
 npm run build
 
-# 8. Configure Nginx Server Blocks
-echo "Configuring Nginx reverse proxy..."
-sudo tee /etc/nginx/sites-available/default > /dev/null <<EOF
+# 9. Configure Nginx — HTTP redirect + HTTPS with Let's Encrypt
+echo "Configuring Nginx (HTTP -> HTTPS redirect + SSL reverse proxy)..."
+
+CERT_DIR="/etc/letsencrypt/live/coloringpalace.cloud"
+
+if [ -d "$CERT_DIR" ]; then
+    # SSL certificates exist — write the full secure config
+    echo "  SSL certificates found. Writing HTTPS config..."
+    sudo tee /etc/nginx/sites-available/default > /dev/null <<EOF
+# Redirect all HTTP traffic to HTTPS
 server {
     listen 80;
     server_name coloringpalace.cloud www.coloringpalace.cloud;
+    return 301 https://\$host\$request_uri;
+}
+
+# HTTPS — proxy to Next.js with SSL and security headers
+server {
+    listen 443 ssl;
+    server_name coloringpalace.cloud www.coloringpalace.cloud;
+
+    ssl_certificate     $CERT_DIR/fullchain.pem;
+    ssl_certificate_key $CERT_DIR/privkey.pem;
+
+    # Modern SSL settings
+    ssl_protocols       TLSv1.2 TLSv1.3;
+    ssl_ciphers         HIGH:!aNULL:!MD5;
+    ssl_prefer_server_ciphers on;
+
+    # Security headers
+    add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
+    add_header X-Frame-Options            "SAMEORIGIN"                          always;
+    add_header X-Content-Type-Options     "nosniff"                             always;
+    add_header Referrer-Policy            "strict-origin-when-cross-origin"     always;
+
+    # Allow large file uploads (e.g. images)
+    client_max_body_size 20M;
 
     location / {
-        proxy_pass http://127.0.0.1:3000;
+        proxy_pass         http://127.0.0.1:3000;
         proxy_http_version 1.1;
-        proxy_set_header Upgrade \$http_upgrade;
-        proxy_set_header Connection 'upgrade';
-        proxy_set_header Host \$host;
+        proxy_set_header   Upgrade    \$http_upgrade;
+        proxy_set_header   Connection 'upgrade';
+        proxy_set_header   Host       \$host;
         proxy_cache_bypass \$http_upgrade;
     }
 }
 EOF
+else
+    # No certificates yet — write plain HTTP config so the site still works
+    # Run: sudo certbot --nginx -d coloringpalace.cloud -d www.coloringpalace.cloud
+    echo "  WARNING: SSL certificates not found at $CERT_DIR."
+    echo "  Writing HTTP-only config. Run Certbot to enable HTTPS:"
+    echo "    sudo certbot --nginx -d coloringpalace.cloud -d www.coloringpalace.cloud"
+    sudo tee /etc/nginx/sites-available/default > /dev/null <<EOF
+server {
+    listen 80;
+    server_name coloringpalace.cloud www.coloringpalace.cloud;
 
-# 9. Test and Restart Nginx
-echo "Restarting Nginx..."
+    client_max_body_size 20M;
+
+    location / {
+        proxy_pass         http://127.0.0.1:3000;
+        proxy_http_version 1.1;
+        proxy_set_header   Upgrade    \$http_upgrade;
+        proxy_set_header   Connection 'upgrade';
+        proxy_set_header   Host       \$host;
+        proxy_cache_bypass \$http_upgrade;
+    }
+}
+EOF
+fi
+
+# 10. Test and Restart Nginx
+echo "Testing and restarting Nginx..."
 sudo nginx -t
 sudo systemctl restart nginx
 
-# 10. Start Next.js with PM2 process manager
+# 11. Start Next.js with PM2 process manager
 echo "Starting the Next.js application server under PM2..."
 pm2 delete coloring-pages 2>/dev/null || true
 pm2 start npm --name "coloring-pages" -- start
 pm2 save
 
+echo ""
 echo "=== VPS Deployment Successfully Completed! ==="
-echo "You can now visit your website at: http://coloringpalace.cloud"
+echo "Visit your secure website at: https://coloringpalace.cloud"
