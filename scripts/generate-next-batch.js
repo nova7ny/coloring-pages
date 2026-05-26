@@ -4,6 +4,10 @@ const path = require('path');
 const CONTENT_DIR     = path.join(__dirname, '../public/content');
 const COMING_SOON_SRC = path.join(__dirname, '../public/images/coming-soon.png');
 
+// Difficulties the automated cron will generate.
+// Hard pages are excluded — they require manual curation or a dedicated run.
+const AUTO_DIFFICULTIES = ['Easy', 'Medium'];
+
 function getPrompt(page) {
   const diff = page.difficulty;
   const title = page.title.replace(' Coloring Page', '');
@@ -52,6 +56,10 @@ async function main() {
       if (fs.existsSync(metaPath) && (hasMarker || isStub)) {
         try {
           const meta = JSON.parse(fs.readFileSync(metaPath, 'utf8'));
+
+          // Skip Hard pages — only auto-generate Easy and Medium
+          if (!AUTO_DIFFICULTIES.includes(meta.difficulty)) continue;
+
           placeholderPages.push({
             id: pageId,
             category: catId,
@@ -69,7 +77,7 @@ async function main() {
     }
   }
 
-  console.log(`Found ${placeholderPages.length} placeholder pages remaining.`);
+  console.log(`Found ${placeholderPages.length} placeholder pages remaining (Easy + Medium only).`);
 
   // Pick the first 6 pages to process in this batch
   const batchSize = 6;
