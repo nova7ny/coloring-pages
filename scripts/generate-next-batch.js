@@ -1,8 +1,8 @@
 const fs = require('fs');
 const path = require('path');
 
-const CONTENT_DIR = path.join(__dirname, '../public/content');
-const PLACEHOLDER_MAX_SIZE = 1000; // Small text placeholders (usually 19 bytes)
+const CONTENT_DIR     = path.join(__dirname, '../public/content');
+const COMING_SOON_SRC = path.join(__dirname, '../public/images/coming-soon.png');
 
 function getPrompt(page) {
   const diff = page.difficulty;
@@ -43,23 +43,27 @@ async function main() {
       const imagePath = path.join(pagePath, 'image.png');
       const metaPath = path.join(pagePath, 'metadata.json');
 
-      if (fs.existsSync(imagePath) && fs.existsSync(metaPath)) {
-        const size = fs.statSync(imagePath).size;
-        if (size <= PLACEHOLDER_MAX_SIZE) {
-          try {
-            const meta = JSON.parse(fs.readFileSync(metaPath, 'utf8'));
-            placeholderPages.push({
-              id: pageId,
-              category: catId,
-              title: meta.title,
-              difficulty: meta.difficulty,
-              subcategory: meta.subcategory,
-              tags: meta.tags,
-              imagePath: imagePath
-            });
-          } catch (e) {
-            console.warn(`Error reading metadata for ${pageId}:`, e.message);
-          }
+      // A page needs generation if it has a .is_placeholder marker OR a stub image (≤ 1000 bytes)
+      const markerPath = path.join(pagePath, '.is_placeholder');
+      const hasMarker  = fs.existsSync(markerPath);
+      const imageSize  = fs.existsSync(imagePath) ? fs.statSync(imagePath).size : 0;
+      const isStub     = imageSize <= 1000;
+
+      if (fs.existsSync(metaPath) && (hasMarker || isStub)) {
+        try {
+          const meta = JSON.parse(fs.readFileSync(metaPath, 'utf8'));
+          placeholderPages.push({
+            id: pageId,
+            category: catId,
+            title: meta.title,
+            difficulty: meta.difficulty,
+            subcategory: meta.subcategory,
+            tags: meta.tags,
+            imagePath: imagePath,
+            markerPath: markerPath
+          });
+        } catch (e) {
+          console.warn(`Error reading metadata for ${pageId}:`, e.message);
         }
       }
     }
