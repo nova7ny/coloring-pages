@@ -42,6 +42,24 @@ export default function RootLayout({ children }) {
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2696076579545081"
           crossOrigin="anonymous"
         />
+
+        {/* ── Schema.org Structured Data (JSON-LD) ── */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              "name": "ColoringPalace",
+              "url": "https://coloringpalace.cloud",
+              "potentialAction": {
+                "@type": "SearchAction",
+                "target": "https://coloringpalace.cloud/search?q={search_term_string}",
+                "query-input": "required name=search_term_string"
+              }
+            })
+          }}
+        />
       </head>
       <body>{children}</body>
     </html>

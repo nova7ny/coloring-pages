@@ -1,0 +1,26 @@
+# ColoringPalace
+
+ColoringPalace is a premium directory of high-resolution, vector-grade free printable coloring pages in PDF format. Designed for kids, parents, teachers, and meditative adult relaxation.
+
+## Category Map
+
+- Animals & Wildlife: https://coloringpalace.cloud/category/animals
+- Dinosaurs & Prehistoric: https://coloringpalace.cloud/category/dinosaurs
+- Fantasy & Fairy Tales: https://coloringpalace.cloud/category/fantasy
+- Flowers & Botanicals: https://coloringpalace.cloud/category/flowers
+- Geometric Mandalas: https://coloringpalace.cloud/category/mandalas
+- Holidays & Seasons: https://coloringpalace.cloud/category/holidays
+- Nature & Landscapes: https://coloringpalace.cloud/category/nature
+- Ocean & Marine Life: https://coloringpalace.cloud/category/ocean
+- Space & Astronomy: https://coloringpalace.cloud/category/space
+- Vehicles & Transport: https://coloringpalace.cloud/category/vehicles
+- Anime & Manga: https://coloringpalace.cloud/category/anime
+- Zodiac & Astrology: https://coloringpalace.cloud/category/astrology
+- School & Education: https://coloringpalace.cloud/category/education
+- Cute & Kawaii: https://coloringpalace.cloud/category/kawaii
+
+## Core Features
+
+1. **One-Click Printing:** Direct, high-resolution vector PDF downloads.
+2. **Branded Coming Soon:** Real-time generation of requested slots.
+3. **Optimized Layouts:** Easy navigation, search autocomplete, and mobile-first design.
