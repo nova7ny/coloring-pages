@@ -20,12 +20,23 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={fredoka.variable}>
       <head>
-        {/*
-          AdSense script placed directly in <head> so it appears in the
-          server-rendered HTML that Google's verification crawler reads.
-          Using afterInteractive via next/script would inject it only after
-          JS hydration, making it invisible to bots checking the raw source.
-        */}
+        {/* ── Google Analytics (GA4) ── */}
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-X2WLQJ4X9P"
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-X2WLQJ4X9P');
+            `,
+          }}
+        />
+
+        {/* ── Google AdSense ── */}
         <script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2696076579545081"
@@ -36,5 +47,6 @@ export default function RootLayout({ children }) {
     </html>
   );
 }
+
 
 
