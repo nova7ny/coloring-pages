@@ -41,7 +41,7 @@ try {
   
   // 2. Commit changes
   console.log('Committing changes...');
-  const commitOutput = execSync(`"${gitPath}" commit -m "feat: add Cars pages and commit all local autopilot generated batches"`, { encoding: 'utf8' });
+  const commitOutput = execSync(`"${gitPath}" commit -m "feat: scaffold 90 new Easy/Medium page placeholders and update database"`, { encoding: 'utf8' });
   console.log('=== Commit Result ===');
   console.log(commitOutput);
   
