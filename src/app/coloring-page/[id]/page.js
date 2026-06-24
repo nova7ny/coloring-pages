@@ -63,7 +63,7 @@ export default async function ColoringPageDetail({ params }) {
     "name": page.title,
     "description": page.seoDescription || `Free printable ${page.title} coloring page.`,
     "genre": "Coloring Page",
-    "image": `http://localhost:3000${page.imagePath}`,
+    "image": `https://coloringpalace.cloud${page.imagePath}`,
     "educationalUse": "Coloring Activity",
     "difficulty": page.difficulty,
     "offers": {
