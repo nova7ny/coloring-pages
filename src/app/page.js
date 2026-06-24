@@ -181,6 +181,38 @@ export default async function Home() {
             </div>
           </section>
         )}
+        {/* Semantic SEO content section to improve Text-to-HTML ratio and rankings */}
+        <section className="homepage-seo-section" style={{ marginTop: '48px', borderTop: '1px solid var(--border-color)', paddingTop: '32px' }}>
+          <h2 className="section-title">
+            <span>📚</span> Free Printable Coloring Pages FAQ
+          </h2>
+          <div className="seo-faq-grid" style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '24px', marginTop: '20px' }}>
+            <div>
+              <h3 style={{ fontSize: '18px', marginBottom: '8px', color: 'var(--text-primary)' }}>Are the coloring pages on ColoringPalace completely free?</h3>
+              <p style={{ color: 'var(--text-secondary)', lineHeight: '1.6' }}>
+                Yes! Every single coloring sheet on our site is 100% free to print and download for personal, educational, and non-commercial use. There are no subscriptions, registration walls, or hidden fees. Simply browse your favorite categories, find a drawing you love, and start printing.
+              </p>
+            </div>
+            <div>
+              <h3 style={{ fontSize: '18px', marginBottom: '8px', color: 'var(--text-primary)' }}>How do I download and print these coloring sheets?</h3>
+              <p style={{ color: 'var(--text-secondary)', lineHeight: '1.6' }}>
+                Printing is quick and easy. Click on any coloring page thumbnail to open its detail view, then click the prominent "Download PDF" button. A high-resolution, vector-grade PDF will open or download instantly. Ensure your printer settings are set to "Fit to Page" for the best border alignment on standard US Letter or A4 paper.
+              </p>
+            </div>
+            <div>
+              <h3 style={{ fontSize: '18px', marginBottom: '8px', color: 'var(--text-primary)' }}>What makes your coloring vectors premium-grade?</h3>
+              <p style={{ color: 'var(--text-secondary)', lineHeight: '1.6' }}>
+                Unlike low-resolution coloring templates that turn blurry or pixelated when printed, all of our sheets are processed as crisp, vector-grade line art. This ensures clean, smooth outlines whether you color with standard crayons, fine gel pens, or heavy markers.
+              </p>
+            </div>
+            <div>
+              <h3 style={{ fontSize: '18px', marginBottom: '8px', color: 'var(--text-primary)' }}>Can teachers use these templates in the classroom?</h3>
+              <p style={{ color: 'var(--text-secondary)', lineHeight: '1.6' }}>
+                Absolutely! We actively encourage teachers, homeschoolers, and educators to print as many copies as needed for class activities, lessons, and crafting projects. Coloring helps children build fine motor skills, hand-eye coordination, and focus.
+              </p>
+            </div>
+          </div>
+        </section>
       </main>
 
       <Footer />

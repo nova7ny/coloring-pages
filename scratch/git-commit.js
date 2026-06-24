@@ -41,7 +41,7 @@ try {
   
   // 2. Commit changes
   console.log('Committing changes...');
-  const commitOutput = execSync(`"${gitPath}" commit -m "fix(seo): update JSON-LD schema image domain to production host"`, { encoding: 'utf8' });
+  const commitOutput = execSync(`"${gitPath}" commit -m "fix(seo): resolve JSX syntax error in homepage FAQ block"`, { encoding: 'utf8' });
   console.log('=== Commit Result ===');
   console.log(commitOutput);
   
