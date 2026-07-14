@@ -44,6 +44,56 @@ export default async function ColoringPageDetail({ params }) {
     notFound();
   }
 
+  // 1.5. Read metadata.json for fun facts or use dynamic fallback
+  let funFacts = [];
+  try {
+    const fs = require("fs");
+    const path = require("path");
+    const metaPath = path.join(process.cwd(), "public", "content", page.categoryId, page.id, "metadata.json");
+    if (fs.existsSync(metaPath)) {
+      const meta = JSON.parse(fs.readFileSync(metaPath, "utf8"));
+      if (meta.funFacts && Array.isArray(meta.funFacts) && meta.funFacts.length > 0) {
+        funFacts = meta.funFacts;
+      }
+    }
+  } catch (err) {
+    console.error(`Error loading fun facts for page ${id}:`, err.message);
+  }
+
+  if (funFacts.length === 0) {
+    if (page.categoryId === "dinosaurs") {
+      funFacts = [
+        "Dinosaurs lived during the Mesozoic Era, which is divided into the Triassic, Jurassic, and Cretaceous periods spanning from 252 to 66 million years ago.",
+        "They exhibited a wide range of diets; while giants like the Sauropods were herbivores eating tons of conifers daily, theropods like Allosaurus were carnivores.",
+        "Coloring prehistoric scenes helps develop spatial intelligence and memory retention of historical periods and dinosaur taxonomy."
+      ];
+    } else if (page.categoryId === "vehicles") {
+      funFacts = [
+        "Modern and vintage vehicles run on internal combustion engines, electric batteries, or hybrid power units to achieve high horsepower and speed.",
+        "The production of JDM (Japanese Domestic Market) and classic muscle cars reached its golden eras in the late 1960s and 1990s.",
+        "Coloring vehicles promotes hand-eye coordination and recognition of complex mechanical shapes and structures."
+      ];
+    } else if (page.categoryId === "ocean" || page.categoryId === "seafloor") {
+      funFacts = [
+        "The ocean covers over 70% of the Earth's surface and remains more than 80% unexplored, harboring millions of unique marine species.",
+        "Deep-sea marine life adapts to high pressure, total darkness, and freezing temperatures in zones like the midnight zone.",
+        "Coloring ocean scenes encourages awareness of marine biology, coral reef ecology, and ocean conservation."
+      ];
+    } else if (page.categoryId === "mandalas" || page.categoryId === "patterns") {
+      funFacts = [
+        "Mandalas are geometric configurations of symbols originating from ancient Sanskrit, representing the universe and wholeness.",
+        "Coloring symmetrical repetitive patterns triggers a relaxing state, lowering heart rates and acting as a tool for stress relief and mindfulness.",
+        "Using fine-tip markers or gel pens on intricate layouts stimulates creative focus and artistic balance."
+      ];
+    } else {
+      funFacts = [
+        `This page is optimized for high-resolution A4 or US Letter size printing, ensuring smooth outlines for any coloring medium.`,
+        "Coloring is a scientifically proven way to increase focus, activate both hemispheres of the brain, and develop fine motor skills.",
+        "Using a mix of warm and cool colors in your coloring sheets can create unique contrasts and depth."
+      ];
+    }
+  }
+
   // 2. Fetch up to 4 related pages in the same category (excluding current page)
   const relatedPages = await prisma.coloringPage.findMany({
     where: {
@@ -147,6 +197,20 @@ export default async function ColoringPageDetail({ params }) {
 
             {/* Inline Ad Rectangle */}
             <AdContainer type="rectangle" slotId="detail-bottom-rectangle" />
+
+            {/* Educational Fun Facts Section */}
+            {funFacts && funFacts.length > 0 && (
+              <section className="fun-facts-section" style={{ marginTop: '32px', padding: '24px', backgroundColor: 'var(--bg-secondary)', border: '2px solid var(--border-color)', borderRadius: 'var(--border-radius-lg)', boxShadow: 'var(--card-shadow)' }}>
+                <h2 style={{ fontSize: '20px', marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--text-primary)' }}>
+                  <span>💡</span> Did You Know? Fun Facts
+                </h2>
+                <ul style={{ paddingLeft: '20px', display: 'flex', flexDirection: 'column', gap: '12px', listStyleType: 'disc' }}>
+                  {funFacts.map((fact, index) => (
+                    <li key={index} style={{ lineHeight: '1.6', color: 'var(--text-primary)' }}>{fact}</li>
+                  ))}
+                </ul>
+              </section>
+            )}
           </div>
 
           {/* Right Column - Download Actions, Meta, Skyscraper Ad */}

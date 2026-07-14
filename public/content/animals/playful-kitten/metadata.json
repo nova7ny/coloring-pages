@@ -3,9 +3,19 @@
   "title": "Playful Kitten Coloring Page",
   "category": "Animals",
   "subcategory": "Cats",
-  "tags": ["cat", "kitten", "cute", "pets"],
+  "tags": [
+    "cat",
+    "kitten",
+    "cute",
+    "pets"
+  ],
   "seoTitle": "Free Playful Kitten Coloring Page (Printable PDF)",
   "seoDescription": "Download and print this adorable playful kitten coloring page. Perfect for kids, classrooms, and animal lovers. High-resolution free PDF format.",
   "difficulty": "Easy",
-  "author": "Antigravity Agent"
+  "author": "Antigravity Agent",
+  "funFacts": [
+    "Cats have a specialized reflective layer in their eyes called the tapetum lucidum, allowing them to see in near-total darkness.",
+    "Domestic cats share 95.6% of their genetic makeup with wild tigers, displaying many of the same stalking and instincts.",
+    "Coloring kittens and cats stimulates creativity and recognition of feline body language."
+  ]
 }
