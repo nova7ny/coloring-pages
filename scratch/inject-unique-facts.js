@@ -3,6 +3,118 @@ const path = require('path');
 
 const CONTENT_DIR = path.join(__dirname, '../public/content');
 
+const displayNames = {
+  allosaurus: "Allosaurus",
+  amargasaurus: "Amargasaurus",
+  ankylosaurus: "Ankylosaurus",
+  baryonyx: "Baryonyx",
+  carnotaurus: "Carnotaurus",
+  coelophysis: "Coelophysis",
+  deinonychus: "Deinonychus",
+  dilophosaurus: "Dilophosaurus",
+  dimetrodon: "Dimetrodon",
+  elasmosaurus: "Elasmosaurus",
+  gallimimus: "Gallimimus",
+  ichthyosaurus: "Ichthyosaurus",
+  iguanodon: "Iguanodon",
+  kentrosaurus: "Kentrosaurus",
+  mosasaurus: "Mosasaurus",
+  pachycephalosaurus: "Pachycephalosaurus",
+  parasaurolophus: "Parasaurolophus",
+  plesiosaurus: "Plesiosaurus",
+  protoceratops: "Protoceratops",
+  quetzalcoatlus: "Quetzalcoatlus",
+  "saber-toothed-tiger": "Saber-toothed Tiger",
+  spinosaurus: "Spinosaurus",
+  styracosaurus: "Styracosaurus",
+  therizinosaurus: "Therizinosaurus",
+  "woolly-mammoth": "Woolly Mammoth",
+  brachiosaurus: "Brachiosaurus",
+  brontosaurus: "Brontosaurus",
+  diplodocus: "Diplodocus",
+  triceratops: "Triceratops",
+  stegosaurus: "Stegosaurus",
+  velociraptor: "Velociraptor",
+  tyrannosaurus: "Tyrannosaurus Rex",
+  pterodactyl: "Pterodactyl",
+  mustang: "Ford Mustang",
+  nova: "Chevrolet Nova",
+  gto: "Pontiac GTO",
+  rs6: "Audi RS6",
+  racecar: "Formula 1 race car",
+  hypercar: "hypercar",
+  "bullet-train": "bullet train",
+  biplane: "biplane",
+  "propeller-plane": "propeller plane",
+  "monster-truck": "monster truck",
+  bulldozer: "bulldozer",
+  excavator: "excavator",
+  forklift: "forklift",
+  "road-roller": "road roller",
+  paver: "asphalt paver",
+  crane: "crane",
+  "pile-driver": "pile driver",
+  silvia: "Nissan Silvia",
+  skyline: "Nissan Skyline",
+  supercar: "supercar",
+  locomotive: "steam locomotive",
+  train: "train",
+  tractor: "tractor",
+  truck: "truck",
+  anglerfish: "anglerfish",
+  tang: "blue tang",
+  clownfish: "clownfish",
+  "flying-fish": "flying fish",
+  squid: "giant squid",
+  seal: "harbor seal",
+  crab: "crab",
+  jellyfish: "jellyfish",
+  lionfish: "lionfish",
+  lobster: "lobster",
+  manatee: "manatee",
+  ray: "manta ray",
+  eel: "moray eel",
+  nautilus: "chambered nautilus",
+  pelican: "pelican",
+  pufferfish: "pufferfish",
+  anemone: "sea anemone",
+  urchin: "sea urchin",
+  seadragon: "leafy seadragon",
+  seahorse: "seahorse",
+  starfish: "starfish",
+  sunfish: "ocean sunfish",
+  swordfish: "swordfish",
+  octopus: "octopus",
+  whale: "whale",
+  dolphin: "dolphin",
+  turtle: "sea turtle",
+  otter: "sea otter",
+  lion: "lion",
+  tiger: "tiger",
+  panda: "giant panda",
+  bear: "bear",
+  owl: "owl",
+  bird: "bird",
+  squirrel: "squirrel",
+  wolf: "wolf",
+  giraffe: "giraffe",
+  elephant: "elephant",
+  cow: "cow",
+  pig: "pig",
+  sheep: "sheep",
+  butterfly: "butterfly",
+  bee: "honeybee",
+  ladybug: "ladybug",
+  dragonfly: "dragonfly",
+  ant: "ant",
+  caterpillar: "caterpillar",
+  pumpkin: "pumpkin",
+  christmas: "Christmas tree",
+  easter: "Easter egg",
+  cupcake: "cupcake",
+  donut: "donut"
+};
+
 const keywordPools = {
   // Prehistoric / Dinosaurs
   allosaurus: [
@@ -775,24 +887,41 @@ function extractSubject(title) {
     words.pop();
   }
 
-  return words.join(" ").trim();
-}
+  let phrase = words.join(" ");
 
-function generateUniqueFacts(page, extractedSubject, count) {
-  // Find matching keyword in our database
-  let matchedKeyword = null;
-  const lowerSubject = extractedSubject.toLowerCase();
-  
-  // Search custom keyword pools
-  for (const kw of Object.keys(keywordPools)) {
-    if (lowerSubject.includes(kw)) {
-      matchedKeyword = kw;
-      break;
+  // Split phrase at common verbs or prepositions to capture only the subject
+  const splitKeywords = [
+    " floating", " perched", " sitting", " crawling", " playing", " eating", 
+    " surrounded", " flying", " running", " howling", " walking", " swimming",
+    " soaring", " basking", " climbing", " holding", " carrying", " riding",
+    " guarding", " crowing", " plowing", " chasing", " hunting", " sleeping",
+    " looking", " resting", " gliding", " inflating", " deflecting", " saving",
+    " kicking", " strike", " strike pose", " striker", " strike strike",
+    " over ", " in ", " on ", " under ", " with ", " at ", " near ", " by ", 
+    " for ", " to ", " from ", " down ", " into ", " through ", " and "
+  ];
+
+  for (const skw of splitKeywords) {
+    const lowerPhrase = phrase.toLowerCase();
+    const idx = lowerPhrase.indexOf(skw);
+    if (idx !== -1) {
+      phrase = phrase.substring(0, idx).trim();
     }
   }
 
-  // Capitalize subject for display
-  const subjectDisplay = extractedSubject.charAt(0).toUpperCase() + extractedSubject.slice(1);
+  return phrase.trim();
+}
+
+function generateUniqueFacts(page, matchedKeyword, extractedSubject, count) {
+  // Determine display subject: prioritize clean displayNames, fallback to cleaned extractedSubject
+  let subjectDisplay = extractedSubject;
+  if (matchedKeyword && displayNames[matchedKeyword]) {
+    subjectDisplay = displayNames[matchedKeyword];
+  } else if (subjectDisplay) {
+    subjectDisplay = subjectDisplay.charAt(0).toUpperCase() + subjectDisplay.slice(1);
+  } else {
+    subjectDisplay = "subject";
+  }
 
   // Pick subject fact based on unique page seed to prevent duplicates
   const seed = (page.id.length + count) % 3;
@@ -824,7 +953,7 @@ function generateUniqueFacts(page, extractedSubject, count) {
 }
 
 function run() {
-  console.log('=== Starting Injection of exactly 2 Noun-Specific Fun Facts ===');
+  console.log('=== Starting Injection of exactly 2 Clean Noun-Specific Fun Facts ===');
   
   if (!fs.existsSync(CONTENT_DIR)) {
     console.error('Content directory not found!');
@@ -872,14 +1001,24 @@ function run() {
         difficulty: meta.difficulty || 'Easy'
       };
 
+      // Match custom keyword pools
+      let matchedKeyword = null;
+      const lowerSubject = extractedSubject.toLowerCase();
+      for (const kw of Object.keys(keywordPools)) {
+        if (lowerSubject.includes(kw) || pageId.includes(kw)) {
+          matchedKeyword = kw;
+          break;
+        }
+      }
+
       // Generate facts using extracted noun + page info + index offset
-      let facts = generateUniqueFacts(page, extractedSubject, index);
+      let facts = generateUniqueFacts(page, matchedKeyword, extractedSubject, index);
 
       // Verify that this exact fact combination is 100% unique
       let attempts = 0;
       let serialized = facts.join('||');
-      while (uniqueFactSet.has(serialized) && attempts < 10) {
-        facts = generateUniqueFacts(page, extractedSubject, index + 10 + attempts);
+      while (uniqueFactSet.has(serialized) && attempts < 15) {
+        facts = generateUniqueFacts(page, matchedKeyword, extractedSubject, index + 10 + attempts);
         serialized = facts.join('||');
         attempts++;
         duplicateCollisions++;
@@ -894,7 +1033,7 @@ function run() {
     });
   });
 
-  console.log(`=== 2-Bullet Subject-Specific Injection Finished ===`);
+  console.log(`=== Clean 2-Bullet Subject-Specific Injection Finished ===`);
   console.log(`Total Pages Processed: ${totalProcessed}`);
   console.log(`Mathematical Uniqueness Rate: 100%`);
   console.log(`Duplicate collisions resolved: ${duplicateCollisions}`);
