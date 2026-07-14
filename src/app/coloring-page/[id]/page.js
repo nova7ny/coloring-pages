@@ -169,6 +169,20 @@ export default async function ColoringPageDetail({ params }) {
               />
             </div>
 
+            {/* Educational Fun Facts Section */}
+            {funFacts && funFacts.length > 0 && (
+              <section className="fun-facts-section" style={{ marginTop: '20px', marginBottom: '24px', padding: '24px', backgroundColor: 'var(--bg-secondary)', border: '2px solid var(--border-color)', borderRadius: 'var(--border-radius-lg)', boxShadow: 'var(--card-shadow)' }}>
+                <h2 style={{ fontSize: '20px', marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--text-primary)' }}>
+                  <span>💡</span> Did You Know? Fun Facts
+                </h2>
+                <ul style={{ paddingLeft: '20px', display: 'flex', flexDirection: 'column', gap: '12px', listStyleType: 'disc' }}>
+                  {funFacts.map((fact, index) => (
+                    <li key={index} style={{ lineHeight: '1.6', color: 'var(--text-primary)' }}>{fact}</li>
+                  ))}
+                </ul>
+              </section>
+            )}
+
             {/* Social Sharing Component Placeholder */}
             <div style={{ display: 'flex', gap: '12px', alignItems: 'center', marginBottom: '32px', padding: '16px', backgroundColor: 'var(--bg-primary)', borderRadius: '12px', border: '1px solid var(--border-color)' }}>
               <span style={{ fontSize: '14px', fontWeight: '800', color: 'var(--text-secondary)' }}>Share this sheet:</span>
@@ -197,20 +211,6 @@ export default async function ColoringPageDetail({ params }) {
 
             {/* Inline Ad Rectangle */}
             <AdContainer type="rectangle" slotId="detail-bottom-rectangle" />
-
-            {/* Educational Fun Facts Section */}
-            {funFacts && funFacts.length > 0 && (
-              <section className="fun-facts-section" style={{ marginTop: '32px', padding: '24px', backgroundColor: 'var(--bg-secondary)', border: '2px solid var(--border-color)', borderRadius: 'var(--border-radius-lg)', boxShadow: 'var(--card-shadow)' }}>
-                <h2 style={{ fontSize: '20px', marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--text-primary)' }}>
-                  <span>💡</span> Did You Know? Fun Facts
-                </h2>
-                <ul style={{ paddingLeft: '20px', display: 'flex', flexDirection: 'column', gap: '12px', listStyleType: 'disc' }}>
-                  {funFacts.map((fact, index) => (
-                    <li key={index} style={{ lineHeight: '1.6', color: 'var(--text-primary)' }}>{fact}</li>
-                  ))}
-                </ul>
-              </section>
-            )}
           </div>
 
           {/* Right Column - Download Actions, Meta, Skyscraper Ad */}
