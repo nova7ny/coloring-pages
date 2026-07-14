@@ -67,6 +67,12 @@ export default function Header({ active }) {
             <Link href="/trending" onClick={closeMenu} className={`drawer-item ${active === "trending" ? "active" : ""}`}>
               Trending
             </Link>
+            <Link href="/about" onClick={closeMenu} className={`drawer-item ${active === "about" ? "active" : ""}`}>
+              About Us
+            </Link>
+            <Link href="/terms" onClick={closeMenu} className={`drawer-item ${active === "terms" ? "active" : ""}`}>
+              Terms of Service
+            </Link>
             <Link href="/contact" onClick={closeMenu} className={`drawer-item ${active === "contact" ? "active" : ""}`}>
               Contact
             </Link>
