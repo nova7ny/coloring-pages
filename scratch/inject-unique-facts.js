@@ -173,17 +173,17 @@ const keywordPools = {
 
   // Vehicles / Mechanical
   mustang: [
-    "The 1969 {subject} Mach 1 was a legendary muscle car powered by a Cobra Jet V8 engine producing up to 335 horsepower.",
+    "The {subject} Mach 1 was a legendary muscle car powered by a Cobra Jet V8 engine producing up to 335 horsepower.",
     "The {subject} featured classic fastback styling, a blacked-out hood, and racing stripes, symbolizing the peak of the American muscle car era.",
     "The classic {subject} is highly prized by collectors for its aggressive look, dual exhaust pipes, and competition suspension."
   ],
   nova: [
-    "The 1970 Chevrolet {subject} was a popular compact muscle car, widely customized for drag racing due to its light body and V8 power options.",
+    "The Chevrolet {subject} was a popular compact muscle car, widely customized for drag racing due to its light body and V8 power options.",
     "The {subject} could produce over 300 horsepower from the factory, making it a favorite for hot-rod enthusiasts.",
     "The minimalist, understated design of the {subject} earned it a reputation as a 'sleeper'—a car that was much faster than it looked."
   ],
   gto: [
-    "The 1970 Pontiac {subject} is widely considered one of the classic 'Goat' muscle cars, featuring a Ram Air V8 engine producing 366 horsepower.",
+    "The Pontiac {subject} is widely considered one of the classic 'Goat' muscle cars, featuring a Ram Air V8 engine producing 366 horsepower.",
     "The {subject} was famous for its distinctive split front grille, dual hood scoops, and high torque output.",
     "The {subject} is credited with starting the classic muscle car boom of the 1960s and 1970s."
   ],
@@ -244,7 +244,7 @@ const keywordPools = {
   ],
   paver: [
     "Asphalt {subject}s are road-laying machines that distribute and pre-compact hot asphalt evenly over the roadbed.",
-    "The {subject} receives asphalt directly from dump trucks and feeds it through a rear conveyor screed to lay a flat pavement layer.",
+    "The {subject} receives asphalt directly from dump trucks and feed it through a rear conveyor screed to lay a flat pavement layer.",
     "The {subject} works in close coordination with road rollers to build smooth highway surfaces."
   ],
   crane: [
@@ -429,6 +429,11 @@ const keywordPools = {
     "Unlike land tortoises, sea {subject}s cannot retract their heads and flippers inside their shells.",
     "Female sea {subject}s always return to lay their eggs on the exact same beach where they were born decades earlier."
   ],
+  otter: [
+    "Sea {subject}s are famous for floating on their backs and placing a favorite rock on their chests to crack open shellfish.",
+    "To prevent themselves from drifting away in ocean currents while sleeping, {subject}s hold hands or entangle themselves in kelp forests.",
+    "They have the densest fur of any mammal, with up to one million hairs per square inch, keeping them warm in freezing waters."
+  ],
 
   // General Animals
   lion: [
@@ -482,9 +487,9 @@ const keywordPools = {
     "The tusks of an {subject} are actually elongated incisor teeth that grow continuously throughout their lives."
   ],
   cow: [
-    "{subject}s have a highly specialized four-compartment stomach (rumen, reticulum, omasum, and abomasum) to digest tough grass.",
-    "A {subject} spends about 8 hours a day chewing its cud—regurgitated, partially digested grass.",
-    "Coloring domestic farm animals like {subject}s helps children connect with agriculture and food sources."
+    "{subject}s have a highly specialized four-compartment stomach to digest tough grass, spending hours chewing their cud.",
+    "A single {subject} can produce around 6.5 gallons of milk each day under standard farm conditions.",
+    "They are social herd animals, forming close friendships with other individuals in their pasture."
   ],
   pig: [
     "{subject}s are highly intelligent and social animals, capable of learning tricks and navigating complex mazes.",
@@ -494,12 +499,12 @@ const keywordPools = {
   sheep: [
     "{subject}s have rectangular pupils that give them a wide 270-degree field of view, allowing them to spot predators easily.",
     "The wool of a {subject} grows continuously and must be sheared annually to keep the animal comfortable.",
-    "Coloring fluffy {subject} illustrations is a great way for children to practice texture shading and soft outline work."
+    "They are highly social herd animals, forming strong, lifetime bonds within their flock."
   ],
 
   // Birds
   toucan: [
-    "The large bill of the {subject} makes up one-third of its total body length, but it is surprisingly lightweight because it is made of spongy bone.",
+    "The large bill of the {subject} makes up one-third of its total body length, but it is lightweight because it is made of spongy bone.",
     "The {subject} uses its colorful bill to regulate body temperature, radiating excess heat away from its body in the tropical canopy.",
     "The tongue of a {subject} is long, narrow, and feathered along the edges to help it taste and swallow forest fruits."
   ],
@@ -510,12 +515,12 @@ const keywordPools = {
   ],
   bluebird: [
     "The eastern {subject} is a small, colorful thrush native to open woodlands and orchards in North America.",
-    "The bright blue feathers of a {subject} are actually caused by light scattering (structural coloration), not chemical pigments.",
+    "The bright blue feathers of a {subject} are actually caused by light scattering, not chemical pigments.",
     "{subject}s feed primarily on insects during spring and summer, making them natural protectors of garden plants."
   ],
   falcon: [
     "The peregrine {subject} is the fastest animal in the world, reaching diving speeds of over 240 mph (386 km/h) to hunt.",
-    "{subject}s have specialized notches on their beaks (tomial teeth) that allow them to quickly dispatch prey in mid-air.",
+    "{subject}s have specialized notches on their beaks that allow them to quickly dispatch prey in mid-air.",
     "The eyes of a {subject} contain a high density of visual cells, giving them vision that is eight times sharper than a human's."
   ],
   robin: [
@@ -525,7 +530,7 @@ const keywordPools = {
   ],
   penguin: [
     "{subject}s are flightless marine birds that have evolved wing-like flippers to 'fly' through ocean water with extreme agility.",
-    "The tuxedo-like coloring of a {subject} (countershading) acts as camouflage: a dark back blends with deep water, and a white belly blends with bright sky.",
+    "The tuxedo-like coloring of a {subject} acts as camouflage: a dark back blends with deep water, and a white belly blends with bright sky.",
     "Most {subject} species live in the Southern Hemisphere, nesting in massive colonies called rookeries."
   ],
   eagle: [
@@ -563,7 +568,170 @@ const keywordPools = {
   caterpillar: [
     "The primary mission of a {subject} is to eat and grow, shedding its skin multiple times before entering the pupa stage.",
     "A {subject} possesses up to 4,000 muscles in its body, compared to just 650 muscles in a human body.",
-    "Coloring the segmented body of a {subject} is a fun way for kids to practice repeating color patterns."
+    "Coloring the segmented body of a {subject} is a fun way for kids to learn about larval stages and insect growth."
+  ],
+
+  // Holiday
+  pumpkin: [
+    "Pumpkins are actually fruits, not vegetables, belonging to the same family as cucumbers and melons.",
+    "The largest pumpkin ever recorded weighed over 2,700 pounds—heavier than many compact cars.",
+    "They are native to North America and have been cultivated for food and decoration for over 7,000 years."
+  ],
+  christmas: [
+    "The first artificial Christmas trees were made in Germany during the 19th century using dyed goose feathers.",
+    "The classic song 'Jingle Bells' was originally written for Thanksgiving, not Christmas, composed in 1857.",
+    "Decorating winter pine trees began as a celebration of life and hope during the dark winter months."
+  ],
+  easter: [
+    "Decorating chicken eggs is a centuries-old tradition symbolizing rebirth, spring renewal, and fertility.",
+    "The first chocolate Easter eggs were manufactured in Europe in the early 19th century.",
+    "The Easter Bunny legend originated from German folk stories of an egg-laying hare."
+  ],
+
+  // Food
+  cupcake: [
+    "Cupcakes were originally called 'number cakes' or '1234 cakes' because the recipes were measured in cups to make them easy to remember.",
+    "The first cupcake recipe was published in an American cookbook in 1796, baked in small earthenware cups.",
+    "Baking is a science; ingredients like baking soda release carbon dioxide gas to make the cake batter rise."
+  ],
+  donut: [
+    "Donuts were brought to America by Dutch settlers, originally called 'oily cakes' due to being fried in fat.",
+    "The classic hole in the center was created to ensure the middle of the dough fried as quickly as the outer edges.",
+    "The first automated donut machine was invented in New York City in 1920, producing thousands of donuts daily."
+  ]
+};
+
+// General Category facts with 3 unique facts in each pool
+const categoryFactsMap = {
+  nature: [
+    "Forests and trees act as the Earth's lungs, absorbing carbon dioxide and producing the oxygen we breathe.",
+    "Mountain ranges are formed when tectonic plates collide, pushing the Earth's crust upwards over millions of years.",
+    "Winding rivers and canyon streams cut through solid stone over millenia, creating complex geologic landscapes."
+  ],
+  space: [
+    "In space, astronauts grow up to 2 inches taller because the lack of gravity allows their spinal column to expand.",
+    "Rockets burn liquid or solid propellants to generate thrust, accelerating to escape velocity of 25,000 mph to reach orbit.",
+    "Space probes and satellites utilize cosmic gravity assists to slingshot themselves across planetary orbits."
+  ],
+  fantasy: [
+    "Unicorns, dragons, and fairies are mythical figures found in the folklore of many ancient cultures.",
+    "Many legends depict mythical beasts as guardians of nature, ancient treasures, and enchanted realms.",
+    "Phoenixes and other mythical creatures represent themes of rebirth, fire, and magical transformation."
+  ],
+  flowers: [
+    "Fossil records show that roses and wildflowers have existed on Earth for over 35 million years.",
+    "Plants use photosynthesis to convert sunlight into food, releasing oxygen into our atmosphere.",
+    "Blooming flowers attract pollinators like bees and butterflies using colorful patterns and sweet scents."
+  ],
+  holidays: [
+    "Seasonal holidays celebrate cultural traditions, harvest cycles, and historical legends worldwide.",
+    "Festive decorations like carved pumpkins and evergreen trees began as ancient cultural markers of season changes.",
+    "Holiday feasts celebrate harvest collections, family bonding, and cultural cooking history."
+  ],
+  insects: [
+    "Butterflies taste with their feet, and honeybees use a waggle dance to communicate locations of flowers.",
+    "Insects are crucial to global ecosystems, acting as pollinators and soil enrichers.",
+    "Dragonflies and other winged insects possess independent muscles for each wing, making them agile flyers."
+  ],
+  kawaii: [
+    "Kawaii is the Japanese culture of cuteness, characterized by friendly faces and rounded, clean minimalist lines.",
+    "Simple, bold outlines with large coloring spaces are highly therapeutic and perfect for toddlers.",
+    "Kawaii style spreads happiness and positive emotional responses through cute, anthropomorphic character designs."
+  ],
+  monsters: [
+    "Mythological monsters and friendly beasts have been featured in cultural campfire stories for centuries.",
+    "Coloring goofy and non-scary monsters helps kids overcome night fears through creative expression.",
+    "Mythological beasts like chimeras and griffins combined the features of different wild animals into one creature."
+  ],
+  music: [
+    "Acoustic instruments use hollow chambers to amplify sound waves, while electric instruments use electromagnetic pickups.",
+    "A standard modern piano has 88 keys, spanning over seven full octaves of notes.",
+    "Violins and other stringed instruments use taut horsehair bows to vibrate strings, creating warm resonances."
+  ],
+  patterns: [
+    "Tessellations and geometric grids are repeating patterns that fit together perfectly with no gaps.",
+    "Coloring repetitive lines acts as a form of meditation, lowering heart rates and encouraging focus.",
+    "Optical illusions use repeating shapes and angles to trick the human brain into seeing movement."
+  ],
+  quotes: [
+    "Motivational quotes and affirmations are scientifically proven to encourage positive mental habits.",
+    "Beautiful floral and celestial frames surrounding quotes make them ideal for creating custom wall posters.",
+    "Initials and monograms combine typography with decorative art, historically used to stamp royal seals."
+  ],
+  seafloor: [
+    "The seafloor houses massive ecosystems of coral reefs, sea urchins, sea anemones, and crabs.",
+    "Over 80% of the ocean floor remains unmapped and unexplored by modern scientific instruments.",
+    "Sunken shipwrecks and ancient ruins on the seabed act as artificial reefs, housing thousands of fish."
+  ],
+  sports: [
+    "Physical activities strengthen muscles, improve reflexes, and support healthy cardiovascular systems.",
+    "Athletes like gymnasts and racers require immense coordination, core strength, and split-second focus.",
+    "Bicyclists and road racers utilize tight aerodynamic pelotons to reduce air resistance during races."
+  ],
+  superheroes: [
+    "Superheroes first gained massive popularity in the late 1930s as symbols of hope, justice, and protection.",
+    "Science fiction suits and armor concepts represent advanced mechanical engineering and robotics.",
+    "Starfighters and spaceships in sci-fi dogfights utilize thrust vectoring and laser optics to navigate asteroid fields."
+  ],
+  toys: [
+    "Classic toys like teddy bears were named after U.S. President Theodore Roosevelt in 1902.",
+    "Mechanical wind-up key toys and wooden train sets teach children early lessons about motion and gears.",
+    "Chess and board games teach children strategic thinking, rule structure, and pattern recognition."
+  ],
+  adventure: [
+    "Explorers and mountain climbers navigate extreme terrains to map remote rivers, peaks, and caves.",
+    "Pirate ships and galleons crossed open oceans using compasses, sextants, and celestial navigation.",
+    "Campfires and outdoor campsites have served as points of cooking and storytelling since early human history."
+  ],
+  architecture: [
+    "Skyscrapers use steel frames to distribute weight, while medieval castles used solid stone walls and moats.",
+    "Spiral staircases in castle towers were built winding clockwise to favor right-handed defenders.",
+    "Windmills and rural watermills harness natural wind and water currents to grind grain and generate power."
+  ],
+  astrology: [
+    "Zodiac signs are based on constellations along the sun's path, tracked since ancient Babylonian times.",
+    "The 12 zodiac symbols are grouped into four elements: Fire, Earth, Air, and Water.",
+    "Tarot cards and star maps use astrological symbols representing historical astronomical observations."
+  ],
+  birds: [
+    "Birds have hollow bones and air sacs to reduce their body weight, making flight energy-efficient.",
+    "The peregrine falcon is the fastest diving animal on Earth, reaching speeds over 240 mph (386 km/h).",
+    "Robins and songbirds build nests from grass and twigs, laying colorful eggs in the spring."
+  ],
+  education: [
+    "Coloring alphabet letters and numbers helps preschool children build memory and word recognition.",
+    "Simple counting games on printable pages combine visual play with early mathematics.",
+    "Chemical beakers and laboratory tools allow scientists to mix and measure solutions for experiments."
+  ],
+  farm: [
+    "Farms produce essential food crops and support farm animals like cows, sheep, and horses.",
+    "Tractors use high-torque diesel engines to pull heavy plows and harvest equipment through fields.",
+    "Silos and barns protect grain harvests from damp weather, preventing rot and mold."
+  ],
+  fashion: [
+    "Fashion design combines textiles, sketches, and colors to create runway clothes and dresses.",
+    "Historic dress styles and hats reflect the cultural aesthetics of different decades and eras.",
+    "Lipstick and cosmetics have been used since ancient Egyptian times for skincare and decoration."
+  ],
+  food: [
+    "Culinary baking is a science, using chemical reactions like baking powder to make dough rise.",
+    "Donut machines were invented in 1920, helping popularize the sweet treat globally.",
+    "Fresh summer fruits provide essential vitamins, fibers, and natural sugars for energy."
+  ],
+  history: [
+    "Ancient civilizations like Egypt, Rome, and the Vikings left behind detailed monuments and longships.",
+    "Armored knights in jousting Tournaments were popular athletic events of the European Middle Ages.",
+    "The Sphinx and Pyramids of Giza were built as monuments to pharaohs over 4,500 years ago."
+  ],
+  anime: [
+    "Japanese anime and manga art is characterized by large expressive eyes and dynamic hair outlines.",
+    "Anime stories often feature magical girls with spells and armored knights protecting fantasy kingdoms.",
+    "Ninjas and sword warriors are classic figures of historical Japanese action legends."
+  ],
+  animals: [
+    "The animal kingdom features domestic pets, majestic safari beasts, and wild forest predators.",
+    "Animal colors like stripes and spots help them camouflage in their native grasslands or woods.",
+    "Wolves, wild cats, and stags navigate woodland paths, keeping forest ecosystems in balance."
   ]
 };
 
@@ -629,61 +797,34 @@ function generateUniqueFacts(page, extractedSubject, count) {
   // Pick subject fact based on unique page seed to prevent duplicates
   const seed = (page.id.length + count) % 3;
   
-  let fact1 = "";
+  let pool = [];
   if (matchedKeyword && keywordPools[matchedKeyword]) {
-    // Replace {subject} placeholder with capitalized custom subject name
-    const rawFact = keywordPools[matchedKeyword][seed % keywordPools[matchedKeyword].length];
-    fact1 = rawFact.replace(/\{subject\}/g, subjectDisplay);
+    pool = keywordPools[matchedKeyword];
   } else {
     // If no direct key matches, generate custom fact templates using the exact subject name
-    const fallbackTemplates = [
-      `The ${subjectDisplay} is a fascinating subject with rich visual details and unique characteristics.`,
-      `Coloring this representation of the ${subjectDisplay} is a fantastic way to learn about its structure, shapes, and features.`,
-      `Historically, the ${subjectDisplay} has captured the imagination of artists, scientists, and educators alike.`
-    ];
-    fact1 = fallbackTemplates[seed % fallbackTemplates.length];
+    const catId = page.categoryId;
+    if (categoryFactsMap[catId]) {
+      pool = categoryFactsMap[catId];
+    } else {
+      pool = [
+        `The {subject} is a fascinating subject with rich visual details and unique characteristics.`,
+        `Coloring this representation of the {subject} is a fantastic way to learn about its structure, shapes, and features.`,
+        `Historically, the {subject} has captured the imagination of artists, scientists, and educators alike.`
+      ];
+    }
   }
 
-  // Dynamic Fact 2: Coloring details (guaranteed unique by using subject display & difficulty)
-  const tech = techniques[(page.id.length + seed) % techniques.length];
-  const med = mediums[(page.title.length + seed) % mediums.length];
-  const fact2 = `Designed for ${page.difficulty} difficulty, this specific sheet is perfect for practicing ${tech} using ${med}.`;
+  // We select two different facts from the pool (rotated using the seed)
+  // Replacing {subject} placeholder in both facts
+  const fact1 = pool[seed % pool.length].replace(/\{subject\}/g, subjectDisplay);
+  const fact2 = pool[(seed + 1) % pool.length].replace(/\{subject\}/g, subjectDisplay);
 
-  // Dynamic Fact 3: Educational prompt
-  const topic = topics[(page.id.length + page.title.length + seed) % topics.length];
-  const fact3 = `Coloring this drawing is a fantastic way to learn about ${topic} while developing fine motor coordination.`;
-
-  return [fact1, fact2, fact3];
+  // Return exactly 2 educational, subject-specific facts
+  return [fact1, fact2];
 }
 
-const techniques = [
-  "color harmony and edge precision",
-  "smooth gradient shading",
-  "contrasting color schemes",
-  "clean borders and line work",
-  "blending pastel shades",
-  "intricate color highlighting"
-];
-
-const mediums = [
-  "high-resolution colored pencils",
-  "fine-tip gel pens",
-  "wax crayons or markers",
-  "dual-brush markers",
-  "acrylic or light watercolors"
-];
-
-const topics = [
-  "natural botany and organic patterns",
-  "prehistoric animal anatomy",
-  "advanced mechanical structure and shapes",
-  "marine habitats and ocean conservation",
-  "geometric symmetry and relaxing design",
-  "historical events and cultural legends"
-];
-
 function run() {
-  console.log('=== Starting Injection of 100% Unique Noun-Specific Fun Facts ===');
+  console.log('=== Starting Injection of exactly 2 Noun-Specific Fun Facts ===');
   
   if (!fs.existsSync(CONTENT_DIR)) {
     console.error('Content directory not found!');
@@ -753,7 +894,7 @@ function run() {
     });
   });
 
-  console.log(`=== Unique Subject-Specific Injection Finished ===`);
+  console.log(`=== 2-Bullet Subject-Specific Injection Finished ===`);
   console.log(`Total Pages Processed: ${totalProcessed}`);
   console.log(`Mathematical Uniqueness Rate: 100%`);
   console.log(`Duplicate collisions resolved: ${duplicateCollisions}`);
